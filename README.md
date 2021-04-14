@@ -8,6 +8,7 @@ hali mindenki én menetem
 ez most egy ujjabb branch altal letrehozott szoveg 
 :smile:  
 meghalok, hogyha rád nézek  
+fasza
 ### MonKee
 -----------------------------------------------------------------
 
