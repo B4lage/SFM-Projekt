@@ -6,6 +6,7 @@ yeet
 hali Zsoca
 hali mindenki én menetem
 nem tudom megy e még  
+megymeg vajon halo mindenki is  
 -----------------------------------------------------------------
 
 2021-03-15
