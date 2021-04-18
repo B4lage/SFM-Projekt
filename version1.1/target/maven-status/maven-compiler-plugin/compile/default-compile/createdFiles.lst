@@ -1,7 +1,7 @@
-com\mycompany\mokolasvol1\MainPageController.class
 com\mycompany\mokolasvol1\CreateNewMealController.class
 com\mycompany\mokolasvol1\DataInController.class
+com\mycompany\mokolasvol1\AddMealController.class
+com\mycompany\mokolasvol1\MainPageController.class
 com\mycompany\mokolasvol1\App.class
 module-info.class
 com\mycompany\mokolasvol1\MealsController.class
-com\mycompany\mokolasvol1\AddMealController.class
