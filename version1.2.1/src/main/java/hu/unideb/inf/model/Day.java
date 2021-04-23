@@ -35,9 +35,17 @@ public class Day {
     private int gramm;
     //private int goal;
     
-    
+    @ManyToOne
+    @JoinColumn(name = "mealID")
+    private Meal meal;
 
-    
+    public Meal getMeal() {
+        return meal;
+    }
+
+    public void setMeal(Meal meal) {
+        this.meal = meal;
+    }   
     
     public void setId(int id) {
         this.id = id;
