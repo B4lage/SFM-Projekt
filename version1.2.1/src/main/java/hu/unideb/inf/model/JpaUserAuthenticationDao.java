@@ -30,11 +30,8 @@ public class JpaUserAuthenticationDao implements UserAuthenticationDao{
     public void saveUserAuthentication(UserAuthentication a)
     {
         entityManager.getTransaction().begin();
-        System.out.println("#1");
         entityManager.persist(a);
-        System.out.println("#2");
         entityManager.getTransaction().commit();
-        System.out.println("#3");
     }
     public void deleteUserAuthentication(UserAuthentication a)
     {

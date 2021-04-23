@@ -58,12 +58,7 @@ public class DataInController implements Initializable {
     private void handleMentesButtonClicked() throws IOException {
         
         /*TypedQuery<User> query = entityManager.createQuery("SELECT a FROM User a WHERE USERID ="+ActualUser.actUser.getId(), User.class);
-        System.out.println("#0");
-        
         int id = query.getResultList().get(0).getId();
-        System.out.println("#1");
-        
-        System.out.println("#2");
         if(query.getResultList().size() > 0)
         {
             user1 = query.getResultList().get(0);
@@ -87,7 +82,6 @@ public class DataInController implements Initializable {
         try (UserDao uDao = new JpaUserDao();) {
             uDao.deleteUser(user1);
         }
-        System.out.println("#6");
         */
         MainApp.setRoot("DefaultPage");
     }
@@ -107,5 +101,4 @@ public class DataInController implements Initializable {
             celSulyErtek.setText(""+query.getResultList().get(0).getCelSuly());
         }
     }
-
 }

@@ -28,7 +28,7 @@ public class Meal {
     @Column(name = "name", nullable = false, unique = false)
     private String name;
     @Column(name = "kcal", nullable = false, unique = false)
-    private int kcal;
+    private double kcal;
     @Column(name = "ch", nullable = false, unique = false)
     private double ch;
     @Column(name = "protein", nullable = false, unique = false)
@@ -60,11 +60,11 @@ public class Meal {
         this.name = name;
     }
 
-    public int getKcal() {
+    public double getKcal() {
         return kcal;
     }
 
-    public void setKcal(int kcal) {
+    public void setKcal(double kcal) {
         this.kcal = kcal;
     }
 
