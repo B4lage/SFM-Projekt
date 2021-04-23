@@ -7,6 +7,7 @@ package hu.unideb.inf.controller;
 
 import hu.unideb.inf.MainApp;
 import hu.unideb.inf.model.ActualUser;
+import hu.unideb.inf.model.Day;
 import hu.unideb.inf.model.User;
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +32,8 @@ public class DefaultPageController{
     final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
     
+    private int bevittKcal ;
+    private double celKcalInt ;
     @FXML
     private Label elfogyasztottKcal;
 
@@ -51,12 +54,31 @@ public class DefaultPageController{
     
     @FXML
     void handleMutatButtonClicked() throws IOException {
+        bevittKcal = 0;
         LocalDate ld = datumValaszto.getValue();
-        datum.setText(ld.toString());
+        if(ld != null)
+        {
+            datum.setText(ld.toString());
+        } 
+        else
+        {
+            System.out.println("Nincs kiválasztva dátum!");
+        }
+        TypedQuery<Day> nap = entityManager.createQuery("SELECT d FROM Day d WHERE DATUM = '"+ld.toString()+"' AND USERID = "+ActualUser.actUser.getId(),Day.class);
+        for(int i = 0; i < nap.getResultList().size(); i++)
+        {
+            bevittKcal += nap.getResultList().get(i).getKcal();
+        }
+        TypedQuery<User> query = entityManager.createQuery("SELECT a FROM User a WHERE USERID="+ActualUser.actUser.getId(), User.class);
+        int actW = (int) query.getResultList().get(0).getSuly();
+        int actH = (int) query.getResultList().get(0).getMagassag();
+        int actA = (int) query.getResultList().get(0).getKor();
+        celKcalInt = 10*actW + 6.25*actH - 5*actA + 5;
+        udvozloText.setText("Szia "+query.getResultList().get(0).getName()+"!");
+        celKcal.setText(""+celKcalInt);
+        elfogyasztottKcal.setText(""+bevittKcal);
+        hatravanKcal.setText("" + (celKcalInt-bevittKcal));
         
-        TypedQuery<User> query = entityManager.createQuery("SELECT a FROM User a", User.class);
-        //udvozloText.setText("Szia "+query.getResultList().get(0).getName()+"!");
-        System.out.println(ActualUser.actUser.getId());
         
     }
     @FXML

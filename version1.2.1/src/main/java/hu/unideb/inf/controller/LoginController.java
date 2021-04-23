@@ -17,6 +17,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javax.persistence.EntityManager;
@@ -57,11 +59,22 @@ public class LoginController implements Initializable {
         String nev = felhNev.getText();
         String jelszo = jelszoErtek.getText();
         TypedQuery<UserAuthentication>query = entityManager.createQuery("SELECT a FROM UserAuthentication a WHERE NAME ='"+nev+"'", UserAuthentication.class);
-        if(jelszo.equals(query.getResultList().get(0).getPw())){
+        if(query.getResultList().size() == 0)
+        {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Hibás felhasználó!");
+            alert.setHeaderText("Nincs ilyen felhasználó!");
+            alert.setContentText("Próbáld újra, vagy regisztrálj!");
+            alert.showAndWait();
+        }
+        else if(jelszo.equals(query.getResultList().get(0).getPw())){
             tovabb(query);
         }
         else{
-            System.out.println("Rossz jelszó");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Hibás jelszó!");
+            alert.setHeaderText("Hibás jelszó! Próbáld újra!");
+            alert.showAndWait();
         }
     }
 
@@ -75,7 +88,6 @@ public class LoginController implements Initializable {
             uaDao.saveUserAuthentication(usera);
         }
         TypedQuery<UserAuthentication>query = entityManager.createQuery("SELECT a FROM UserAuthentication a WHERE NAME ='"+felhNev.getText()+"'", UserAuthentication.class);
-        System.out.println(query.getResultList().get(0).getName());
         tovabb(query);
     }
     

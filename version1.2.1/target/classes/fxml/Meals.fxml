@@ -17,22 +17,22 @@
                <font>
                   <Font size="17.0" />
                </font></Label>
-            <Label alignment="CENTER_RIGHT" layoutX="145.0" layoutY="77.0" prefHeight="27.0" prefWidth="30.0" text="130">
+            <Label fx:id="LabKcal" alignment="CENTER_RIGHT" layoutX="145.0" layoutY="77.0" prefHeight="27.0" prefWidth="30.0" text="130">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="238.0" layoutY="77.0" text="100">
+            <Label fx:id="LabCh" alignment="CENTER_RIGHT" layoutX="238.0" layoutY="77.0" text="100">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="332.0" layoutY="77.0" text="100">
+            <Label fx:id="LabFat" alignment="CENTER_RIGHT" layoutX="332.0" layoutY="77.0" text="100">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="431.0" layoutY="77.0" text="100">
+            <Label fx:id="LabProt" alignment="CENTER_RIGHT" layoutX="431.0" layoutY="77.0" text="100">
                <font>
                   <Font size="18.0" />
                </font>
@@ -77,10 +77,10 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TableView layoutX="200.0" layoutY="171.0" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="todaysMeals" layoutX="200.0" layoutY="171.0" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="100.0" text="Név" />
-                <TableColumn prefWidth="99.0" text="kcal" />
+                <TableColumn fx:id="todaysMealName" prefWidth="100.0" text="Név" />
+                <TableColumn fx:id="todaysMealKcal" prefWidth="99.0" text="kcal" />
               </columns>
             </TableView>
             <Button layoutX="229.0" layoutY="401.0" mnemonicParsing="false" onAction="#handleVisszaButtonClicked" text="Vissza" />

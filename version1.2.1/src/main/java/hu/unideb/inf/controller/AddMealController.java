@@ -1,6 +1,7 @@
 package hu.unideb.inf.controller;
 
 import hu.unideb.inf.MainApp;
+import hu.unideb.inf.model.ActualUser;
 import hu.unideb.inf.model.Day;
 import hu.unideb.inf.model.DayDao;
 import hu.unideb.inf.model.JpaDayDao;
@@ -109,13 +110,36 @@ public class AddMealController implements Initializable{
     void handleHozzaadomANapomhozButtonClicked() throws IOException{
         Day napom = new Day();
         TypedQuery<Meal> query = entityManager.createQuery("SELECT a FROM Meal a WHERE NAME='"+mitEvett.getText()+"'", Meal.class);
+        
+        
+        int portio = Integer.parseInt(mennyitEvett.getText());
+        boolean adagOrG = gml.isSelected();
+        if(gml.isSelected())
+        {
+            double x = (double)portio / query.getResultList().get(0).getPortion();
+            napom.setKcal(x * query.getResultList().get(0).getKcal());
+            
+            napom.setFat(query.getResultList().get(0).getFat() * x);
+            napom.setCh(query.getResultList().get(0).getCh() * x);
+            napom.setProtein(query.getResultList().get(0).getProtein() * x);
+            
+            napom.setGramm(portio);
+        }
+        else
+        {
+            napom.setKcal(portio * query.getResultList().get(0).getKcal());
+            
+            napom.setFat(query.getResultList().get(0).getFat() * portio);
+            napom.setCh(query.getResultList().get(0).getCh() * portio);
+            napom.setProtein(query.getResultList().get(0).getProtein() * portio);
+            
+            napom.setGramm(portio * query.getResultList().get(0).getPortion());
+        }
+        
         napom.setDatum(LocalDate.now());
-        napom.setFat(query.getResultList().get(0).getFat());
-        napom.setKcal(query.getResultList().get(0).getKcal());
-        napom.setCh(query.getResultList().get(0).getCh());
-        napom.setProtein(query.getResultList().get(0).getProtein());
-        napom.setGramm(query.getResultList().get(0).getPortion());
+        
         napom.setMeal(query.getResultList().get(0));
+        napom.setUsr(ActualUser.actUser);
         
         
         try (DayDao mDao = new JpaDayDao();) {

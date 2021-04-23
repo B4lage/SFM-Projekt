@@ -28,7 +28,7 @@ public class Day {
     @GeneratedValue
     private int id;
     private LocalDate datum;
-    private int kcal;
+    private double kcal;
     private double protein;
     private double ch;
     private double fat;
@@ -38,6 +38,20 @@ public class Day {
     @ManyToOne
     @JoinColumn(name = "mealID")
     private Meal meal;
+    
+    @ManyToOne
+    @JoinColumn(name = "userID")
+    private UserAuthentication usr;
+
+    public UserAuthentication getUsr() {
+        return usr;
+    }
+
+    public void setUsr(UserAuthentication usr) {
+        this.usr = usr;
+    }
+
+    
 
     public Meal getMeal() {
         return meal;
@@ -69,11 +83,11 @@ public class Day {
         this.datum = datum;
     }
 
-    public int getKcal() {
+    public double getKcal() {
         return kcal;
     }
 
-    public void setKcal(int kcal) {
+    public void setKcal(double kcal) {
         this.kcal = kcal;
     }
 
