@@ -5,6 +5,8 @@
  */
 package hu.unideb.inf.model;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,6 +39,9 @@ public class Meal {
     private int portion;        // 1 portion how many g/ml for example: 1 portion is 100g
 
     
+    /*@OneToMany
+    @JoinColumn(name = "mealID")
+    private Set<Day> day = new HashSet<>();*/
 
     
     public int getId() {
@@ -100,4 +105,14 @@ public class Meal {
     {
         return name;
     }
+
+    /*public Set<Day> getDay() {
+        return day;
+    }
+
+    public void setDay(Set<Day> day) {
+        this.day = day;
+    }*/
+
+
 }

@@ -115,6 +115,7 @@ public class AddMealController implements Initializable{
         napom.setCh(query.getResultList().get(0).getCh());
         napom.setProtein(query.getResultList().get(0).getProtein());
         napom.setGramm(query.getResultList().get(0).getPortion());
+        napom.setMeal(query.getResultList().get(0));
         
         
         try (DayDao mDao = new JpaDayDao();) {
