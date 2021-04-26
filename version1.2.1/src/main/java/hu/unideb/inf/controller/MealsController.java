@@ -49,8 +49,18 @@ public class MealsController implements Initializable{
     @FXML
     private TableColumn<Day, String> todaysMealName;
 
+     @FXML
+    private TableColumn<Day, String> todaysMealFat;
+
+    @FXML
+    private TableColumn<Day, String> todaysMealGramm;
+
     @FXML
     private TableColumn<Day, String> todaysMealKcal;
+
+    @FXML
+    private TableColumn<Day, String> todaysMealProt;
+
   
     ObservableList<Day> oblist = FXCollections.observableArrayList();
 
@@ -68,7 +78,28 @@ public class MealsController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         TypedQuery<Day> query = entityManager.createQuery("SELECT a FROM Day a", Day.class);
         oblist.addAll(query.getResultList());
-        todaysMealName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        todaysMealKcal.setCellValueFactory(new PropertyValueFactory<>("fat"));
+        double sumKcal = 0;
+        double sumCh = 0;
+        double sumFat = 0;
+        double sumProt = 0;
+        for(int i = 0; i < query.getResultList().size(); i++)
+        {
+            sumKcal += query.getResultList().get(i).getKcal();
+            sumCh += query.getResultList().get(i).getCh();
+            sumFat += query.getResultList().get(i).getFat();
+            sumProt += query.getResultList().get(i).getProtein();
+            
+        }
+        
+        LabKcal.setText(""+sumKcal);
+        LabCh.setText(""+sumCh);
+        LabFat.setText(""+sumFat);
+        LabProt.setText(""+sumProt);
+        todaysMealName.setCellValueFactory(new PropertyValueFactory<>("Meal"));
+        todaysMealFat.setCellValueFactory(new PropertyValueFactory<>("fat"));
+        todaysMealGramm.setCellValueFactory(new PropertyValueFactory<>("gramm"));
+        todaysMealKcal.setCellValueFactory(new PropertyValueFactory<>("kcal"));
+        todaysMealProt.setCellValueFactory(new PropertyValueFactory<>("protein"));
+        todaysMeals.setItems(oblist);
     }
 }
