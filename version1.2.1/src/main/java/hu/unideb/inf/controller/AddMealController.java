@@ -117,21 +117,21 @@ public class AddMealController implements Initializable{
         if(gml.isSelected())
         {
             double x = (double)portio / query.getResultList().get(0).getPortion();
-            napom.setKcal(x * query.getResultList().get(0).getKcal());
+            napom.setKcal(Math.round(x * query.getResultList().get(0).getKcal() * 100.0)/100.0);
             
-            napom.setFat(query.getResultList().get(0).getFat() * x);
-            napom.setCh(query.getResultList().get(0).getCh() * x);
-            napom.setProtein(query.getResultList().get(0).getProtein() * x);
+            napom.setFat(Math.round(query.getResultList().get(0).getFat() * x * 100.0) / 100.0);
+            napom.setCh(Math.round(query.getResultList().get(0).getCh() * x * 100.0) / 100.0);
+            napom.setProtein(Math.round(query.getResultList().get(0).getProtein() * x * 100.0) / 100.0);
             
             napom.setGramm(portio);
         }
         else
         {
-            napom.setKcal(portio * query.getResultList().get(0).getKcal());
+            napom.setKcal(Math.round(portio * query.getResultList().get(0).getKcal() * 100.0) / 100.0);
             
-            napom.setFat(query.getResultList().get(0).getFat() * portio);
-            napom.setCh(query.getResultList().get(0).getCh() * portio);
-            napom.setProtein(query.getResultList().get(0).getProtein() * portio);
+            napom.setFat(Math.round(query.getResultList().get(0).getFat() * portio * 100.0) / 100.0);
+            napom.setCh(Math.round(query.getResultList().get(0).getCh() * portio * 100.0) / 100.0);
+            napom.setProtein(Math.round(query.getResultList().get(0).getProtein() * portio * 100.0) / 100.0);
             
             napom.setGramm(portio * query.getResultList().get(0).getPortion());
         }
