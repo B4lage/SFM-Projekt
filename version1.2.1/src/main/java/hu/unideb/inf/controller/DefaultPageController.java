@@ -14,7 +14,10 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javax.persistence.EntityManager;
@@ -32,8 +35,10 @@ public class DefaultPageController{
     final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
     
+    public LocalDate ld;
+    
     private int bevittKcal ;
-    private double celKcalInt ;
+    private double celKcalDouble ;
     @FXML
     private Label elfogyasztottKcal;
 
@@ -54,31 +59,50 @@ public class DefaultPageController{
     
     @FXML
     void handleMutatButtonClicked() throws IOException {
-        bevittKcal = 0;
-        LocalDate ld = datumValaszto.getValue();
-        if(ld != null)
+        if(datumValaszto.getValue()== null)
         {
-            datum.setText(ld.toString());
-        } 
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hibás dátum!");
+            alert.setHeaderText("Nincs kiválasztva dátum!");
+            alert.showAndWait();
+        }
         else
         {
-            System.out.println("Nincs kiválasztva dátum!");
+            bevittKcal = 0;
+            ld = datumValaszto.getValue();
+            if(ld != null)
+            {
+                datum.setText(ld.toString());
+            } 
+            else
+            {
+                System.out.println("Nincs kiválasztva dátum!");
+            }
+            TypedQuery<Day> nap = entityManager.createQuery("SELECT d FROM Day d WHERE DATUM = '"+ld.toString()+"' AND USERID = "+ActualUser.actUser.getId(),Day.class);
+            for(int i = 0; i < nap.getResultList().size(); i++)
+            {
+                bevittKcal += nap.getResultList().get(i).getKcal();
+            }
+            TypedQuery<User> query = entityManager.createQuery("SELECT a FROM User a WHERE USERID="+ActualUser.actUser.getId(), User.class);
+            int actW = (int) query.getResultList().get(0).getSuly();
+            int actH = (int) query.getResultList().get(0).getMagassag();
+            int actA = (int) query.getResultList().get(0).getKor();
+            double actActivity = query.getResultList().get(0).getAktivitas();
+            double actG = 0;
+            if(query.getResultList().get(0).getNem() == 1)
+            {
+                actG = 1;
+            }
+            else
+            {
+                actG = 0.9;
+            }
+            celKcalDouble = (10 * actW + 6.25 * actH - 5 * actA) * actActivity * actG;
+            udvozloText.setText("Szia "+query.getResultList().get(0).getName()+"!");
+            celKcal.setText(""+(int)celKcalDouble);
+            elfogyasztottKcal.setText(""+(int)bevittKcal);
+            hatravanKcal.setText("" +(int)(celKcalDouble-bevittKcal));
         }
-        TypedQuery<Day> nap = entityManager.createQuery("SELECT d FROM Day d WHERE DATUM = '"+ld.toString()+"' AND USERID = "+ActualUser.actUser.getId(),Day.class);
-        for(int i = 0; i < nap.getResultList().size(); i++)
-        {
-            bevittKcal += nap.getResultList().get(i).getKcal();
-        }
-        TypedQuery<User> query = entityManager.createQuery("SELECT a FROM User a WHERE USERID="+ActualUser.actUser.getId(), User.class);
-        int actW = (int) query.getResultList().get(0).getSuly();
-        int actH = (int) query.getResultList().get(0).getMagassag();
-        int actA = (int) query.getResultList().get(0).getKor();
-        celKcalInt = 10*actW + 6.25*actH - 5*actA + 5;
-        udvozloText.setText("Szia "+query.getResultList().get(0).getName()+"!");
-        celKcal.setText(""+celKcalInt);
-        elfogyasztottKcal.setText(""+bevittKcal);
-        hatravanKcal.setText("" + (celKcalInt-bevittKcal));
-        
         
     }
     @FXML
@@ -88,7 +112,17 @@ public class DefaultPageController{
     
     @FXML
     void handleEtkezesHozzaadasaButtonClicked() throws IOException {
-        MainApp.setRoot("Meals");
+        if(datumValaszto.getValue()== null)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hibás dátum!");
+            alert.setHeaderText("Nincs kiválasztva dátum!");
+            alert.showAndWait();
+        }
+        else{
+            MealsController.ma = datumValaszto.getValue();
+            MainApp.setRoot("Meals");
+        }
     }
     
     

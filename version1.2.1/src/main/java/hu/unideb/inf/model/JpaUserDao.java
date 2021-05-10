@@ -36,7 +36,7 @@ public class JpaUserDao implements UserDao{
     public void deleteUser(User a)
     {
         entityManager.getTransaction().begin();
-        entityManager.remove(a);
+        entityManager.remove(entityManager.contains(a) ? a : entityManager.merge(a));
         entityManager.getTransaction().commit();
     }
     public void updateUser(User a)

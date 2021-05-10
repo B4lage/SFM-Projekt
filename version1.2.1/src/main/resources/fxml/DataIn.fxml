@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -57,14 +58,13 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label text="Cél testsúly:" GridPane.rowIndex="5">
+            <Label text="Aktivitás:" GridPane.rowIndex="5">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
             <TextField fx:id="magassagErtek" prefHeight="25.0" prefWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="sulyErtek" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="celSulyErtek" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <RadioButton fx:id="radioNem" mnemonicParsing="false" text="Férfi" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="15.0" />
@@ -88,12 +88,14 @@
                </font>
             </Label>
             <TextField fx:id="nevErtek" prefHeight="25.0" prefWidth="157.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="comboBox" prefWidth="150.0" promptText="Válassz aktivitást!" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
          <VBox.margin>
             <Insets />
          </VBox.margin>
       </GridPane>
       <Button fx:id="tovabbMainPageButton" onAction="#handleMentesButtonClicked" text="Mentés" />
+      <Button mnemonicParsing="false" onAction="#handeMegseButtonClicked" text="Mégse" />
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

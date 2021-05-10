@@ -29,7 +29,7 @@ public class DataShowController implements Initializable {
     final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
     
-     @FXML
+    @FXML
     private Label nevErtek ;
 
     @FXML
@@ -40,9 +40,9 @@ public class DataShowController implements Initializable {
 
     @FXML
     private Label sulyErtek;
-
+    
     @FXML
-    private Label celSulyErtek;
+    private Label aktivitasErtek;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,13 +51,25 @@ public class DataShowController implements Initializable {
         korErtek.setText(""+query.getResultList().get(0).getKor());
         magassagErtek.setText(""+query.getResultList().get(0).getMagassag());
         sulyErtek.setText(""+query.getResultList().get(0).getSuly());
-        celSulyErtek.setText(""+query.getResultList().get(0).getCelSuly());
+        int aktivitasIndex = 0;
+        for(int i=0;i<DataInController.aktivitasErtekek.length;i++)
+        {
+            if(query.getResultList().get(0).getAktivitas() == DataInController.aktivitasErtekek[i])
+            {
+                aktivitasIndex = i;
+            }
+        }
+        aktivitasErtek.setText(DataInController.aktivitasLehetosegek[aktivitasIndex]);
     }    
     
     @FXML
-    void handleAdataimMegvaltoztatasaButtonClicked() throws IOException
-    {
+    void handleAdataimMegvaltoztatasaButtonClicked() throws IOException{
         MainApp.setRoot("DataIn");
+    }
+    
+    @FXML
+    void handleVisszaButtonClicked() throws IOException {
+        MainApp.setRoot("DefaultPage");
     }
     
 }

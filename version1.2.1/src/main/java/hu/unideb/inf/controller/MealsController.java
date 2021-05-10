@@ -2,9 +2,11 @@
 package hu.unideb.inf.controller;
 
 import hu.unideb.inf.MainApp;
+import hu.unideb.inf.model.ActualUser;
 import hu.unideb.inf.model.Day;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,6 +32,7 @@ public class MealsController implements Initializable{
     final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
     
+    public static LocalDate ma;
     
     @FXML
     private Label LabKcal;
@@ -49,7 +52,7 @@ public class MealsController implements Initializable{
     @FXML
     private TableColumn<Day, String> todaysMealName;
 
-     @FXML
+    @FXML
     private TableColumn<Day, String> todaysMealFat;
 
     @FXML
@@ -61,7 +64,7 @@ public class MealsController implements Initializable{
     @FXML
     private TableColumn<Day, String> todaysMealProt;
 
-  
+    
     ObservableList<Day> oblist = FXCollections.observableArrayList();
 
     @FXML
@@ -76,7 +79,8 @@ public class MealsController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        TypedQuery<Day> query = entityManager.createQuery("SELECT a FROM Day a", Day.class);
+        System.out.println(ma.toString());
+        TypedQuery<Day> query = entityManager.createQuery("SELECT d FROM Day d WHERE DATUM = '"+ma.toString()+"' AND USERID = "+ActualUser.actUser.getId(),Day.class);
         oblist.addAll(query.getResultList());
         double sumKcal = 0;
         double sumCh = 0;
@@ -88,9 +92,7 @@ public class MealsController implements Initializable{
             sumCh += query.getResultList().get(i).getCh();
             sumFat += query.getResultList().get(i).getFat();
             sumProt += query.getResultList().get(i).getProtein();
-            
         }
-        
         LabKcal.setText(""+sumKcal);
         LabCh.setText(""+sumCh);
         LabFat.setText(""+sumFat);

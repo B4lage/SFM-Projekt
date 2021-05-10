@@ -17,6 +17,9 @@ import javax.persistence.TypedQuery;
  */
 public interface UserDao extends AutoCloseable{
     
+    final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
+    final EntityManager entityManager = entityManagerFactory.createEntityManager();
+    
     public void saveUser(User a);
     public void deleteUser(User a);    
     public void updateUser(User a);    
