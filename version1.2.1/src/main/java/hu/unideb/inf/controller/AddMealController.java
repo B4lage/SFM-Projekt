@@ -17,6 +17,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.SelectionMode;
@@ -108,42 +109,58 @@ public class AddMealController implements Initializable{
     
     @FXML
     void handleHozzaadomANapomhozButtonClicked() throws IOException{
-        Day napom = new Day();
-        TypedQuery<Meal> query = entityManager.createQuery("SELECT a FROM Meal a WHERE NAME='"+mitEvett.getText()+"'", Meal.class);
-        
-        
-        int portio = Integer.parseInt(mennyitEvett.getText());
-        boolean adagOrG = gml.isSelected();
-        if(gml.isSelected())
+        if(mitEvett.getText() == "")
         {
-            double x = (double)portio / query.getResultList().get(0).getPortion();
-            napom.setKcal(Math.round(x * query.getResultList().get(0).getKcal() * 100.0)/100.0);
-            
-            napom.setFat(Math.round(query.getResultList().get(0).getFat() * x * 100.0) / 100.0);
-            napom.setCh(Math.round(query.getResultList().get(0).getCh() * x * 100.0) / 100.0);
-            napom.setProtein(Math.round(query.getResultList().get(0).getProtein() * x * 100.0) / 100.0);
-            
-            napom.setGramm(portio);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hibás étel!");
+            alert.setHeaderText("Add meg az étel nevét!");
+            alert.showAndWait();
+        }
+        else if(mennyitEvett.getText() == "")
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hibás mennyiség!");
+            alert.setHeaderText("Add meg, hogy mennyit ettél az adott ételből!");
+            alert.showAndWait();
         }
         else
         {
-            napom.setKcal(Math.round(portio * query.getResultList().get(0).getKcal() * 100.0) / 100.0);
-            
-            napom.setFat(Math.round(query.getResultList().get(0).getFat() * portio * 100.0) / 100.0);
-            napom.setCh(Math.round(query.getResultList().get(0).getCh() * portio * 100.0) / 100.0);
-            napom.setProtein(Math.round(query.getResultList().get(0).getProtein() * portio * 100.0) / 100.0);
-            
-            napom.setGramm(portio * query.getResultList().get(0).getPortion());
-        }
-        
-        napom.setDatum(LocalDate.now());
-        
-        napom.setMeal(query.getResultList().get(0));
-        napom.setUsr(ActualUser.actUser);
-        
-        
-        try (DayDao mDao = new JpaDayDao();) {
-            mDao.saveDay(napom);
+            Day napom = new Day();
+            TypedQuery<Meal> query = entityManager.createQuery("SELECT a FROM Meal a WHERE NAME='"+mitEvett.getText()+"'", Meal.class);
+
+            int portio = Integer.parseInt(mennyitEvett.getText());
+            boolean adagOrG = gml.isSelected();
+            if(gml.isSelected())
+            {
+                double x = (double)portio / query.getResultList().get(0).getPortion();
+                napom.setKcal(Math.round(x * query.getResultList().get(0).getKcal() * 100.0)/100.0);
+
+                napom.setFat(Math.round(query.getResultList().get(0).getFat() * x * 100.0) / 100.0);
+                napom.setCh(Math.round(query.getResultList().get(0).getCh() * x * 100.0) / 100.0);
+                napom.setProtein(Math.round(query.getResultList().get(0).getProtein() * x * 100.0) / 100.0);
+
+                napom.setGramm(portio);
+            }
+            else
+            {
+                napom.setKcal(Math.round(portio * query.getResultList().get(0).getKcal() * 100.0) / 100.0);
+
+                napom.setFat(Math.round(query.getResultList().get(0).getFat() * portio * 100.0) / 100.0);
+                napom.setCh(Math.round(query.getResultList().get(0).getCh() * portio * 100.0) / 100.0);
+                napom.setProtein(Math.round(query.getResultList().get(0).getProtein() * portio * 100.0) / 100.0);
+
+                napom.setGramm(portio * query.getResultList().get(0).getPortion());
+            }
+
+            napom.setDatum(MealsController.ma);
+
+            napom.setMeal(query.getResultList().get(0));
+            napom.setUsr(ActualUser.actUser);
+
+
+            try (DayDao mDao = new JpaDayDao();) {
+                mDao.saveDay(napom);
+            }
         }
     }
 

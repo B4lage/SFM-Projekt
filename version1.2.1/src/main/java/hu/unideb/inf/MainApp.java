@@ -27,25 +27,9 @@ import org.h2.tools.Server;
 public class MainApp extends Application {
 
     private static Scene scene;
-
-    /*@Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLStudentsScene.fxml"));
-        Scene scene = new Scene(loader.load());
-        stage.setTitle("Students Register");
-        stage.setScene(scene);
-        stage.show();
-    }*/
     
     @Override
     public void start(Stage stage) throws IOException {
-        /*try (UserDao uDAO = new JpaUserDao();) {
-            List<User> aList = uDAO.getUsers();
-            if(aList.size() > 0)
-            {
-            controllerName = "DefaultPage";
-            }
-        }*/
         scene = new Scene(loadFXML("Login"), 1080, 720);
         
         stage.setScene(scene);

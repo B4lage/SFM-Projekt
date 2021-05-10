@@ -30,11 +30,15 @@ public class User {
     private int nem;
     private double magassag;
     private double suly;
-    private double celSuly;
+    private double aktivitas;
     
     @OneToOne
     @JoinColumn(name = "userId")
     private UserAuthentication felhasznalo;
+
+    public UserAuthentication getFelhasznalo() {
+        return felhasznalo;
+    }
 
     public int getId() {
         return id;
@@ -85,12 +89,12 @@ public class User {
         this.suly = suly;
     }
 
-    public double getCelSuly() {
-        return celSuly;
+    public double getAktivitas() {
+        return aktivitas;
     }
 
-    public void setCelSuly(double celSuly) {
-        this.celSuly = celSuly;
+    public void setAktivitas(double aktivitas) {
+        this.aktivitas = aktivitas;
     }
 
     public void setFelhasznalo(UserAuthentication felhasznalo) {
