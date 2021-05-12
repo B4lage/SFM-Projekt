@@ -1,0 +1,30 @@
+*{
+  dark-primary-color: #689F38; 
+  default-primary-color: #8BC34A; 
+  light-primary-color: #DCEDC8; 
+  text-primary-color: #212121;
+  accent-color: #FF5722; 
+  primary-text-color: #212121; 
+  secondary-text-color: #757575; 
+  divider-color: #BDBDBD;
+  
+}
+.root {
+    -fx-background-color: linear-gradient(to left bottom, #5AE416, #00CA68, #00AB8D, #008A95, #006881, #2F4858);
+    -fx-text-fill :white;
+    -fx-title:"gao";
+}
+
+.label{
+    -fx-font-family: URL("https://fonts.googleapis.com/css?family=Raleway");
+    -fx-text-fill: rgb(255,255,255);
+    -fx-font-weight: bold;
+}
+#BoxPane{
+    -fx-background-color: rgb(0,0,0,0.4);
+}
+.button{
+    -fx-background-color: #E1E7E4;
+    -fx-background-radius:10;
+    
+}
