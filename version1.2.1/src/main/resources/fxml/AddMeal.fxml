@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" fillWidth="false" prefHeight="584.0" prefWidth="879.0" spacing="20.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.AddMealController">
+<VBox alignment="CENTER" fillWidth="false" prefHeight="584.0" prefWidth="879.0" spacing="20.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.AddMealController">
     <children>
       <AnchorPane prefHeight="596.0" prefWidth="839.0">
          <children>

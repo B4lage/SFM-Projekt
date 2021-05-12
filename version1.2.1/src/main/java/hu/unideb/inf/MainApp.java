@@ -17,7 +17,10 @@ import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -25,15 +28,24 @@ import org.h2.tools.Server;
 
 
 public class MainApp extends Application {
-
+    Parent root;
     private static Scene scene;
     
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Login"), 1080, 720);
-        
-        stage.setScene(scene);
-        stage.show();
+        try {
+            scene = new Scene(loadFXML("Login"), 1080, 720);
+            //root = FXMLLoader.load(getClass().getClassLoader().getResource("Login.fxml"));
+            //Scene scene = new Scene(root);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.getIcons().add(new Image("/img/icon.jpg"));
+            stage.setTitle("Monkee");
+            stage.setScene(scene);
+            scene.setFill(Color.TRANSPARENT);
+            stage.show();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void setRoot(String fxml) throws IOException {
