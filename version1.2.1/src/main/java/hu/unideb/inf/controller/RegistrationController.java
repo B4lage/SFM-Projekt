@@ -98,6 +98,10 @@ public class RegistrationController implements Initializable
         MainApp.setRoot("Login");
     }
 
+    @FXML
+    void menuHandleLeirasButtonClicked() throws IOException {
+        MainApp.setRoot("Login");
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {

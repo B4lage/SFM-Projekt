@@ -48,6 +48,7 @@ public class MainApp extends Application {
             stage.getIcons().add(new Image("/img/icon.jpg"));
             stage.setTitle("Monkee");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.setOnCloseRequest(e -> {
                 exit(0);
             } );  
