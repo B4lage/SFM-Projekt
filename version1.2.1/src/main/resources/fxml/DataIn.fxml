@@ -20,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox alignment="CENTER" fillWidth="false" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" fillWidth="false" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.DataInController">
    <children>
       <MenuBar prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: black;">
          <menus>
