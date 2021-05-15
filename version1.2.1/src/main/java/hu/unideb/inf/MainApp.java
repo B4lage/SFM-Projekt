@@ -7,6 +7,7 @@ import hu.unideb.inf.model.MealDao;
 import hu.unideb.inf.model.User;
 import hu.unideb.inf.model.UserDao;
 import java.io.IOException;
+import static java.lang.System.exit;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -14,10 +15,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -34,14 +38,20 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
+            MenuBar menuBar = new MenuBar();
+            VBox vbox = new VBox(menuBar);
             scene = new Scene(loadFXML("Login"), 1080, 720);
-            //root = FXMLLoader.load(getClass().getClassLoader().getResource("Login.fxml"));
-            //Scene scene = new Scene(root);
-            stage.initStyle(StageStyle.TRANSPARENT);
+            //root = FXMLLoader.load(getClass().getClassLoader().getResource("../../../../resources/fxml/Login.fxml"));
+            //scene = new Scene(root);
+            //stage.initStyle(StageStyle.TRANSPARENT);
+            //scene.setFill(Color.TRANSPARENT);
             stage.getIcons().add(new Image("/img/icon.jpg"));
             stage.setTitle("Monkee");
             stage.setScene(scene);
-            scene.setFill(Color.TRANSPARENT);
+            stage.setOnCloseRequest(e -> {
+                exit(0);
+            } );  
+
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -59,14 +69,6 @@ public class MainApp extends Application {
         return fxmlLoader.load();
     }
 
-    /**
-     * The main() method is ignored in correctly deployed JavaFX application.
-     * main() serves only as fallback in case the application can not be
-     * launched through deployment artifacts, e.g., in IDEs with limited FX
-     * support. NetBeans ignores main().
-     *
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         
         try {

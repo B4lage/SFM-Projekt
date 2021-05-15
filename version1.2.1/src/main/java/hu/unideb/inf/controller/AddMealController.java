@@ -163,6 +163,30 @@ public class AddMealController implements Initializable{
             }
         }
     }
+    
+    // Menubar
+    
+    @FXML
+    void menuHandleAdataimPushed() throws IOException {
+        MainApp.setRoot("DataShow");
+    }
+    
+    @FXML
+    void menuHandleKijelentkezesButtonClicked() throws IOException {
+        MainApp.setRoot("Login");
+    }
+    
+    @FXML
+    void menuHandleFooldalButtonClicked() throws IOException {
+        MainApp.setRoot("DefaultPage");
+    }
+    
+    @FXML        
+    void menuHandleLeirasButtonClicked() throws IOException {
+        MainApp.setRoot("Leiras");
+    }
+    
+    // Menubar vege
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

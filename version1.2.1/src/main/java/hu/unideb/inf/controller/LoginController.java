@@ -80,15 +80,7 @@ public class LoginController implements Initializable {
 
     @FXML
     void handleRegisztracioButtonClicked() throws IOException {
-        UserAuthentication usera = new UserAuthentication();
-        usera.setName(felhNev.getText());
-        usera.setPw(jelszoErtek.getText());
-        
-        try (UserAuthenticationDao uaDao = new JpaUserAuthenticationDao();) {
-            uaDao.saveUserAuthentication(usera);
-        }
-        TypedQuery<UserAuthentication>query = entityManager.createQuery("SELECT a FROM UserAuthentication a WHERE NAME ='"+felhNev.getText()+"'", UserAuthentication.class);
-        tovabb(query);
+        MainApp.setRoot("Registration");
     }
     
     @Override
