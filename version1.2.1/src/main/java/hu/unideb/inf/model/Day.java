@@ -65,6 +65,10 @@ public class Day {
         this.id = id;
     }
     
+    public int getId() {
+        return id;
+    }
+    
     
     public int getGramm() {
         return gramm;
