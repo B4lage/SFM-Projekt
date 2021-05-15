@@ -114,7 +114,15 @@ public class Day {
     public void setFat(double fat) {
         this.fat = fat;
     }
-
+    
+    /* FOR TESTING PURPOSE */
+    
+    public int getId() {
+        return id;
+    }
+    
+    /* ------------------- */
+    
     /*public int getGoal() {
         return goal;
     }
