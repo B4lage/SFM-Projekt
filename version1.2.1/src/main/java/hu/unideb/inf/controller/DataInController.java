@@ -110,7 +110,7 @@ public class DataInController implements Initializable {
                 user1.setNem(2);
             }
             user1.setName(nevErtek.getText());
-            user1.setMagassag(Double.parseDouble(magassagErtek.getText()));
+            user1.setMagassag(Integer.parseInt(magassagErtek.getText()));
             user1.setSuly(Double.parseDouble(sulyErtek.getText()));
             
             // Felhasznalo aktivitasanak beallitasa
@@ -156,6 +156,30 @@ public class DataInController implements Initializable {
     void handeMegseButtonClicked() throws IOException {
         MainApp.setRoot("DataShow");
     }
+    
+    // Menubar
+    
+    @FXML
+    void menuHandleAdataimPushed() throws IOException {
+        MainApp.setRoot("DataShow");
+    }
+    
+    @FXML
+    void menuHandleKijelentkezesButtonClicked() throws IOException {
+        MainApp.setRoot("Login");
+    }
+    
+    @FXML
+    void menuHandleFooldalButtonClicked() throws IOException {
+        MainApp.setRoot("DefaultPage");
+    }
+    
+    @FXML        
+    void menuHandleLeirasButtonClicked() throws IOException {
+        MainApp.setRoot("Leiras");
+    }
+    
+    // Menubar vege
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

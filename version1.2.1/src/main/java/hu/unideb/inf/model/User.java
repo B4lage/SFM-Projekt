@@ -28,7 +28,7 @@ public class User {
     private String name;
     private int kor;
     private int nem;
-    private double magassag;
+    private int magassag;
     private double suly;
     private double aktivitas;
     
@@ -77,7 +77,7 @@ public class User {
         return magassag;
     }
 
-    public void setMagassag(double magassag) {
+    public void setMagassag(int magassag) {
         this.magassag = magassag;
     }
 

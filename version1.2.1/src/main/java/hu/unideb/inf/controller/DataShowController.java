@@ -49,8 +49,8 @@ public class DataShowController implements Initializable {
         TypedQuery<User> query = entityManager.createQuery("SELECT a FROM User a WHERE USERID ="+ActualUser.actUser.getId(), User.class);
         nevErtek.setText(query.getResultList().get(0).getName());
         korErtek.setText(""+query.getResultList().get(0).getKor());
-        magassagErtek.setText(""+query.getResultList().get(0).getMagassag());
-        sulyErtek.setText(""+query.getResultList().get(0).getSuly());
+        magassagErtek.setText(""+query.getResultList().get(0).getMagassag()+" cm");
+        sulyErtek.setText(""+query.getResultList().get(0).getSuly()+" kg");
         int aktivitasIndex = 0;
         for(int i=0;i<DataInController.aktivitasErtekek.length;i++)
         {
@@ -66,6 +66,30 @@ public class DataShowController implements Initializable {
     void handleAdataimMegvaltoztatasaButtonClicked() throws IOException{
         MainApp.setRoot("DataIn");
     }
+    
+    // Menubar
+    
+    @FXML
+    void menuHandleAdataimPushed() throws IOException {
+        MainApp.setRoot("DataShow");
+    }
+    
+    @FXML
+    void menuHandleKijelentkezesButtonClicked() throws IOException {
+        MainApp.setRoot("Login");
+    }
+    
+    @FXML
+    void menuHandleFooldalButtonClicked() throws IOException {
+        MainApp.setRoot("DefaultPage");
+    }
+    
+    @FXML        
+    void menuHandleLeirasButtonClicked() throws IOException {
+        MainApp.setRoot("Leiras");
+    }
+    
+    // Menubar vege
     
     @FXML
     void handleVisszaButtonClicked() throws IOException {
