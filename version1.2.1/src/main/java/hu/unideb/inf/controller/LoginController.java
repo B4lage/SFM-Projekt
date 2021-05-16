@@ -83,6 +83,12 @@ public class LoginController implements Initializable {
         MainApp.setRoot("Registration");
     }
     
+    @FXML
+    void menuHandleLeirasButtonClicked() throws IOException {
+        LeirasController.previous = "Login";
+        MainApp.setRoot("Leiras");
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

@@ -8,6 +8,8 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,11 +17,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" fillWidth="false" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.DataShowController">
+<VBox alignment="CENTER" fillWidth="false" maxHeight="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.DataShowController">
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="1080.0">
          <children>
-            <MenuBar prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: black;">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="563.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@106-1065648_healthy-food-png-image-with-transparent-background-healthy.png" />
+               </image>
+            </ImageView>
+            <MenuBar prefHeight="30.0" prefWidth="1080.0">
                <menus>
                   <Menu mnemonicParsing="false" text="Felhasználó">
                      <items>
@@ -119,6 +126,11 @@
                   <Insets />
                </opaqueInsets>
             </AnchorPane>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@monke.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

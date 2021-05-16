@@ -65,6 +65,9 @@ public class DataInController implements Initializable {
 
     @FXML
     private TextField nevErtek;
+    
+    @FXML
+    private Button megseButton;
 
     @FXML
     private void handleMentesButtonClicked() throws IOException {
@@ -176,6 +179,7 @@ public class DataInController implements Initializable {
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
+        LeirasController.previous = "DataIn";
         MainApp.setRoot("Leiras");
     }
     
@@ -189,7 +193,12 @@ public class DataInController implements Initializable {
         {
             nevErtek.setText(query.getResultList().get(0).getName());
             magassagErtek.setText(""+query.getResultList().get(0).getMagassag());
-            sulyErtek.setText(""+query.getResultList().get(0).getSuly());
+            sulyErtek.setText(""+query.getResultList().get(0).getSuly());     
+        }
+        else
+        {
+            megseButton.setOpacity(0);
+            megseButton.setDisable(true);
         }
         ObservableList<String> list = FXCollections.observableArrayList(aktivitasLehetosegek);
         comboBox.setItems(list);

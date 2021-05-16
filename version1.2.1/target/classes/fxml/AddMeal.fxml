@@ -11,16 +11,22 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" fillWidth="false" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.AddMealController">
+<VBox alignment="CENTER" fillWidth="false" maxHeight="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.AddMealController">
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="1080.0">
          <children>
-            <MenuBar prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: black;">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="563.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@106-1065648_healthy-food-png-image-with-transparent-background-healthy.png" />
+               </image>
+            </ImageView>
+            <MenuBar prefHeight="30.0" prefWidth="1080.0">
                <menus>
                   <Menu mnemonicParsing="false" text="Felhasználó">
                      <items>
@@ -41,7 +47,7 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <Label layoutX="434.0" layoutY="58.0" text="Étkezés hozzáadása">
+            <Label layoutX="448.0" layoutY="60.0" text="Étkezés hozzáadása">
                <font>
                   <Font size="24.0" />
                </font>
@@ -51,12 +57,12 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Label layoutX="319.0" layoutY="120.0" text="Mit ettél:">
+            <Label layoutX="333.0" layoutY="121.0" text="Mit ettél:">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <TableView fx:id="mealsTable" layoutX="319.0" layoutY="158.0" onMouseClicked="#onMouseClicked" prefHeight="284.0" prefWidth="449.0">
+            <TableView fx:id="mealsTable" layoutX="333.0" layoutY="159.0" onMouseClicked="#onMouseClicked" prefHeight="284.0" prefWidth="449.0">
                <columns>
                   <TableColumn fx:id="Tname" prefWidth="146.0" text="Név" />
                   <TableColumn fx:id="Tfat" prefWidth="49.0" text="zsír" />
@@ -71,7 +77,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="mitEvett" layoutX="408.0" layoutY="121.0" onKeyReleased="#searchInTable" />
+            <TextField fx:id="mitEvett" layoutX="426.0" layoutY="121.0" onKeyReleased="#searchInTable" />
             <TextField fx:id="mennyitEvett" layoutX="268.0" layoutY="481.0" prefHeight="25.0" prefWidth="61.0" />
             <RadioButton fx:id="gml" layoutX="341.0" layoutY="485.0" mnemonicParsing="false" text="g/ml">
                <toggleGroup>
@@ -89,6 +95,11 @@
                   <Font size="14.0" />
                </font>
             </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@monke.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

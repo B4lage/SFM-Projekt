@@ -86,6 +86,7 @@ public class DataShowController implements Initializable {
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
+        LeirasController.previous = "DataShow";
         MainApp.setRoot("Leiras");
     }
     

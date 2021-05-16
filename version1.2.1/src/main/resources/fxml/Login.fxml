@@ -3,44 +3,72 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" fillWidth="false" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.LoginController">
+<VBox alignment="CENTER" fillWidth="false" maxHeight="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.LoginController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane prefHeight="720.0" prefWidth="1080.0">
          <children>
-            <Pane id="BoxPane" layoutX="162.0" layoutY="67.0" prefHeight="266.0" prefWidth="277.0">
+            <AnchorPane id="AnchorPane" layoutX="240.0" layoutY="160.0" prefHeight="400.0" prefWidth="600.0">
                <children>
-                  <Label layoutX="66.0" layoutY="14.0" text="Felhasználói név:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="111.0" layoutY="75.0" text="Jelszó:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="felhNev" layoutX="64.0" layoutY="43.0" />
-                  <PasswordField fx:id="jelszoErtek" layoutX="64.0" layoutY="108.0" />
-                  <Button layoutX="73.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleBejelentkezesButtonClicked" text="Bejelentkezés">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="155.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleRegisztracioButtonClicked" text="Regisztráció" />
-                  <Label contentDisplay="CENTER" layoutX="28.0" layoutY="231.0" text="Még nem vagy tag?" textAlignment="CENTER" textOverrun="CLIP">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Label>
+                  <Pane id="BoxPane" layoutX="162.0" layoutY="67.0" prefHeight="266.0" prefWidth="277.0">
+                     <children>
+                        <Label layoutX="66.0" layoutY="14.0" text="Felhasználói név:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="111.0" layoutY="75.0" text="Jelszó:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="felhNev" layoutX="64.0" layoutY="43.0" />
+                        <PasswordField fx:id="jelszoErtek" layoutX="64.0" layoutY="108.0" />
+                        <Button layoutX="73.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleBejelentkezesButtonClicked" text="Bejelentkezés">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="155.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleRegisztracioButtonClicked" text="Regisztráció" />
+                        <Label contentDisplay="CENTER" layoutX="28.0" layoutY="231.0" text="Még nem vagy tag?" textAlignment="CENTER" textOverrun="CLIP">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                     </children>
+                  </Pane>
                </children>
-            </Pane>
+            </AnchorPane>
+            <MenuBar prefHeight="30.0" prefWidth="1080.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Súgó">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuHandleLeirasButtonClicked" text="Leírás" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="563.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@106-1065648_healthy-food-png-image-with-transparent-background-healthy.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@monke.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

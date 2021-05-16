@@ -19,13 +19,14 @@ import javafx.fxml.Initializable;
  */
 public class LeirasController implements Initializable {
 
+    public static String previous;
     /**
      * Initializes the controller class.
      */
     
     @FXML
     void handleVisszaButtonClicked() throws IOException {
-        MainApp.setRoot("DefaultPage");
+        MainApp.setRoot(previous);
     }
     
     // Menubar
@@ -47,6 +48,7 @@ public class LeirasController implements Initializable {
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
+        LeirasController.previous = "DefaultPage";
         MainApp.setRoot("Leiras");
     }
     
@@ -54,6 +56,8 @@ public class LeirasController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
         // TODO
     }    
     
