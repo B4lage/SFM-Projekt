@@ -31,7 +31,8 @@ public class DayTest {
     }
     
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws Exception{
+        day = new Day(); 
     }
     
     @AfterEach
@@ -39,12 +40,12 @@ public class DayTest {
     }
 
     /**
-     * Test of getUsr method, of class Day.
+     * Test of setUsr method, of class Day.
      * @throws java.lang.NoSuchFieldException
      * @throws java.lang.IllegalAccessException
      */
     @Test
-    public void testGetUsr() throws NoSuchFieldException, IllegalAccessException {
+    public void testSetUsr() throws NoSuchFieldException, IllegalAccessException {
         //given
         final Day nap = new Day();
 
@@ -60,10 +61,10 @@ public class DayTest {
     }
 
     /**
-     * Test of setUsr method, of class Day.
+     * Test of getUsr method, of class Day.
      */
     @Test
-    public void testSetUsr() throws NoSuchFieldException, IllegalAccessException {
+    public void testGetUsr() throws NoSuchFieldException, IllegalAccessException {
         //given
         final Day nap = new Day();
         final Field field = nap.getClass().getDeclaredField("usr");
