@@ -8,16 +8,23 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" fillWidth="false" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.MealsController">
+<VBox alignment="CENTER" fillWidth="false" maxHeight="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.MealsController">
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="1080.0">
          <children>
-            <MenuBar prefHeight="30.0" prefWidth="1080.0" style="-fx-background-color: black;">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="563.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@106-1065648_healthy-food-png-image-with-transparent-background-healthy.png" />
+               </image>
+            </ImageView>
+            <MenuBar prefHeight="30.0" prefWidth="1080.0">
                <menus>
                   <Menu mnemonicParsing="false" text="Felhasználó">
                      <items>
@@ -118,6 +125,11 @@
                   <Button layoutX="298.0" layoutY="401.0" mnemonicParsing="false" onAction="#switchToAddMeal" text="Étel hozzáadása" />
                </children>
             </AnchorPane>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@monke.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

@@ -98,6 +98,7 @@ public class CreateNewMealController{
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
+        LeirasController.previous = "CreateNewMeal";
         MainApp.setRoot("Leiras");
     }
     
