@@ -31,7 +31,8 @@ public class DayTest {
     }
     
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws Exception{
+        day = new Day(); 
     }
     
     @AfterEach

@@ -1,0 +1,990 @@
+[33mcommit ce1116bb5ba9f8f37639b216034431972bb5219c[m[33m ([m[1;36mHEAD -> [m[1;32mUnitTest[m[33m, [m[1;31morigin/UnitTest[m[33m)[m
+Author: B4lage <balazs.szia@gmail.com>
+Date:   Sat May 15 16:59:16 2021 +0200
+
+    Day es Meal osztalyok tesztelese
+
+[1mdiff --git a/version1.2.1/pom.xml b/version1.2.1/pom.xml[m
+[1mindex adcf7b5..fc798bb 100644[m
+[1m--- a/version1.2.1/pom.xml[m
+[1m+++ b/version1.2.1/pom.xml[m
+[36m@@ -47,6 +47,19 @@[m
+             <artifactId>javafx-fxml</artifactId>[m
+             <version>11</version>[m
+         </dependency>[m
+[32m+[m[41m        [m
+[32m+[m[32m        <dependency>[m
+[32m+[m[32m            <groupId>org.junit.jupiter</groupId>[m
+[32m+[m[32m            <artifactId>junit-jupiter-api</artifactId>[m
+[32m+[m[32m            <version>5.7.1</version>[m
+[32m+[m[32m            <scope>test</scope>[m
+[32m+[m[32m        </dependency>[m
+[32m+[m[32m        <dependency>[m
+[32m+[m[32m            <groupId>org.junit.jupiter</groupId>[m
+[32m+[m[32m            <artifactId>junit-jupiter-engine</artifactId>[m
+[32m+[m[32m            <version>5.7.1</version>[m
+[32m+[m[32m            <scope>test</scope>[m
+[32m+[m[32m        </dependency>[m
+     </dependencies>[m
+     <build>[m
+         <plugins>[m
+[1mdiff --git a/version1.2.1/src/main/java/hu/unideb/inf/model/Day.java b/version1.2.1/src/main/java/hu/unideb/inf/model/Day.java[m
+[1mindex 22e3978..7a6d2f1 100644[m
+[1m--- a/version1.2.1/src/main/java/hu/unideb/inf/model/Day.java[m
+[1m+++ b/version1.2.1/src/main/java/hu/unideb/inf/model/Day.java[m
+[36m@@ -65,6 +65,10 @@[m [mpublic class Day {[m
+         this.id = id;[m
+     }[m
+     [m
+[32m+[m[32m    public int getId() {[m
+[32m+[m[32m        return id;[m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+     [m
+     public int getGramm() {[m
+         return gramm;[m
+[1mdiff --git a/version1.2.1/src/test/java/hu/unideb/inf/model/DayTest.java b/version1.2.1/src/test/java/hu/unideb/inf/model/DayTest.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5af3bf5[m
+[1m--- /dev/null[m
+[1m+++ b/version1.2.1/src/test/java/hu/unideb/inf/model/DayTest.java[m
+[36m@@ -0,0 +1,370 @@[m
+[32m+[m[32m/*[m
+[32m+[m[32m * To change this license header, choose License Headers in Project Properties.[m
+[32m+[m[32m * To change this template file, choose Tools | Templates[m
+[32m+[m[32m * and open the template in the editor.[m
+[32m+[m[32m */[m
+[32m+[m[32mpackage hu.unideb.inf.model;[m
+[32m+[m
+[32m+[m[32mimport java.lang.reflect.Field;[m
+[32m+[m[32mimport java.time.LocalDate;[m
+[32m+[m[32mimport org.junit.jupiter.api.AfterEach;[m
+[32m+[m[32mimport org.junit.jupiter.api.AfterAll;[m
+[32m+[m[32mimport org.junit.jupiter.api.BeforeEach;[m
+[32m+[m[32mimport org.junit.jupiter.api.BeforeAll;[m
+[32m+[m[32mimport org.junit.jupiter.api.Test;[m
+[32m+[m[32mimport static org.junit.jupiter.api.Assertions.*;[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m *[m
+[32m+[m[32m * @author Balage[m
+[32m+[m[32m */[m
+[32m+[m[32mpublic class DayTest {[m
+[32m+[m[41m    [m
+[32m+[m[32m    private Day day;[m
+[32m+[m[41m    [m
+[32m+[m[32m    @BeforeAll[m
+[32m+[m[32m    public static void setUpClass() {[m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[32m    @AfterAll[m
+[32m+[m[32m    public static void tearDownClass() {[m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[32m    @BeforeEach[m
+[32m+[m[32m    public void setUp() {[m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[32m    @AfterEach[m
+[32m+[m[32m    public void tearDown() {[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getUsr method, of class Day.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetUsr() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m
+[32m+[m[32m        var user = new UserAuthentication();[m
+[32m+[m[41m        [m
+[32m+[m[32m        //when[m
+[32m+[m[32m        nap.setUsr(user);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("usr");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(nap), user);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setUsr method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetUsr() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("usr");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        UserAuthentication user = new UserAuthentication();[m
+[32m+[m[32m        field.set(nap, user);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final UserAuthentication result = nap.getUsr();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, user);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setMeal method, of class Day.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetMeal() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m
+[32m+[m[32m        var meal = new Meal();[m
+[32m+[m[41m        [m
+[32m+[m[32m        //when[m
+[32m+[m[32m        nap.setMeal(meal);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("meal");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(nap), meal);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getMeal method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetMeal() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("meal");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        var meal = new Meal();[m
+[32m+[m[32m        field.set(nap, meal);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final var result = nap.getMeal();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, meal);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getId method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetId() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("id");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(nap, 25);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final var result = nap.getId();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 25);[m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setId method, of class Day.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetId() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        nap.setId(55);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("id");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(nap), 55);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getGramm method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetGramm() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("gramm");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(nap, 2509);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final var result = nap.getGramm();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 2509);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setGramm method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetGramm() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        nap.setGramm(5450);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("gramm");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(nap), 5450);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getDatum method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetDatum() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("datum");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        var date = LocalDate.now();[m
+[32m+[m[32m        field.set(nap, date);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final var result = nap.getDatum();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, date);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setDatum method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetDatum() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m
+[32m+[m[32m        LocalDate date = LocalDate.now();[m
+[32m+[m[41m        [m
+[32m+[m[32m        //when[m
+[32m+[m[32m        nap.setDatum(date);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("datum");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(nap), date);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getKcal method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetKcal() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("kcal");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(nap, 23.756);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final double result = nap.getKcal();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 23.756);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setKcal method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetKcal() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        nap.setKcal(654.78);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("kcal");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(nap), 654.78);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getProtein method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetProtein() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("protein");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(nap, 566.78);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final double result = nap.getProtein();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 566.78);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setProtein method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetProtein() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        nap.setProtein(456.6564987);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("protein");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(nap), 456.6564987);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getCh method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetCh() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("ch");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(nap, 45.5464);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final double result = nap.getCh();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 45.5464);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setCh method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetCh() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        nap.setCh(456.6564987);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("ch");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(nap), 456.6564987);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getFat method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetFat() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("fat");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(nap, 874.45421);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final double result = nap.getFat();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 874.45421);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setFat method, of class Day.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetFat() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Day nap = new Day();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        nap.setFat(45.828);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = nap.getClass().getDeclaredField("fat");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(nap), 45.828);[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/version1.2.1/src/test/java/hu/unideb/inf/model/MealTest.java b/version1.2.1/src/test/java/hu/unideb/inf/model/MealTest.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8bb1ba6[m
+[1m--- /dev/null[m
+[1m+++ b/version1.2.1/src/test/java/hu/unideb/inf/model/MealTest.java[m
+[36m@@ -0,0 +1,326 @@[m
+[32m+[m[32m/*[m
+[32m+[m[32m * To change this license header, choose License Headers in Project Properties.[m
+[32m+[m[32m * To change this template file, choose Tools | Templates[m
+[32m+[m[32m * and open the template in the editor.[m
+[32m+[m[32m */[m
+[32m+[m[32mpackage hu.unideb.inf.model;[m
+[32m+[m
+[32m+[m[32mimport java.lang.reflect.Field;[m
+[32m+[m[32mimport org.junit.jupiter.api.AfterEach;[m
+[32m+[m[32mimport org.junit.jupiter.api.AfterAll;[m
+[32m+[m[32mimport org.junit.jupiter.api.BeforeEach;[m
+[32m+[m[32mimport org.junit.jupiter.api.BeforeAll;[m
+[32m+[m[32mimport org.junit.jupiter.api.Test;[m
+[32m+[m[32mimport static org.junit.jupiter.api.Assertions.*;[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m *[m
+[32m+[m[32m * @author Balage[m
+[32m+[m[32m */[m
+[32m+[m[32mpublic class MealTest {[m
+[32m+[m[41m    [m
+[32m+[m[32m    private Meal meal;[m
+[32m+[m[41m    [m
+[32m+[m[32m    @BeforeAll[m
+[32m+[m[32m    public static void setUpClass() {[m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[32m    @AfterAll[m
+[32m+[m[32m    public static void tearDownClass() {[m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[32m    @BeforeEach[m
+[32m+[m[32m    public void setUp() throws Exception{[m
+[32m+[m[32m        meal = new Meal();[m[41m [m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[32m    @AfterEach[m
+[32m+[m[32m    public void tearDown() {[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getId method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetId() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal etel = new Meal();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        etel.setId(38);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = etel.getClass().getDeclaredField("id");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(etel), 38);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setId method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetId() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal etel = new Meal();[m
+[32m+[m[32m        final Field field = etel.getClass().getDeclaredField("id");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(etel, 52);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final int result = etel.getId();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 52);[m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getName method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetName() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal etel = new Meal();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        etel.setName("Krumpli");[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = etel.getClass().getDeclaredField("name");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(etel), "Krumpli");[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setName method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetName() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal repa = new Meal();[m
+[32m+[m[32m        final Field field = repa.getClass().getDeclaredField("name");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(repa, "Repa");[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final String result = repa.getName();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, "Repa");[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getKcal method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetKcal() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal etel = new Meal();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        etel.setKcal(532.2);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = etel.getClass().getDeclaredField("kcal");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(etel), 532.2);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setKcal method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetKcal() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal retek = new Meal();[m
+[32m+[m[32m        final Field field = retek.getClass().getDeclaredField("kcal");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(retek, 65.2);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final double result = retek.getKcal();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 65.2);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getPortion method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetPortion() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal etel = new Meal();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        etel.setPortion(3);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = etel.getClass().getDeclaredField("portion");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(etel), 3);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setPortion method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetPortion() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal retek = new Meal();[m
+[32m+[m[32m        final Field field = retek.getClass().getDeclaredField("portion");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(retek, 8);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final int result = retek.getPortion();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 8);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getCh method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetCh() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal etel = new Meal();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        etel.setCh(3.76);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = etel.getClass().getDeclaredField("ch");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(etel), 3.76);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setCh method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetCh() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal retek = new Meal();[m
+[32m+[m[32m        final Field field = retek.getClass().getDeclaredField("ch");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(retek, 4.85625);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final double result = retek.getCh();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 4.85625);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getProtein method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetProtein() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal etel = new Meal();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        etel.setProtein(15.897464);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = etel.getClass().getDeclaredField("protein");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(etel), 15.897464);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setProtein method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetProtein() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal retek = new Meal();[m
+[32m+[m[32m        final Field field = retek.getClass().getDeclaredField("protein");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(retek, 151.8784564);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final double result = retek.getProtein();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 151.8784564);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of getFat method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testSetFat() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal etel = new Meal();[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        etel.setFat(87.541654);[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        final Field field = etel.getClass().getDeclaredField("fat");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        assertEquals(field.get(etel), 87.541654);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of setFat method, of class Meal.[m
+[32m+[m[32m     * @throws java.lang.NoSuchFieldException[m
+[32m+[m[32m     * @throws java.lang.IllegalAccessException[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testGetFat() throws NoSuchFieldException, IllegalAccessException {[m
+[32m+[m[32m        //given[m
+[32m+[m[32m        final Meal retek = new Meal();[m
+[32m+[m[32m        final Field field = retek.getClass().getDeclaredField("fat");[m
+[32m+[m[32m        field.setAccessible(true);[m
+[32m+[m[32m        field.set(retek, 78.654654);[m
+[32m+[m
+[32m+[m[32m        //when[m
+[32m+[m[32m        final double result = retek.getFat();[m
+[32m+[m
+[32m+[m[32m        //then[m
+[32m+[m[32m        assertEquals(result, 78.654654);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * Test of toString method, of class Meal.[m
+[32m+[m[32m     */[m
+[32m+[m[32m    @Test[m
+[32m+[m[32m    public void testToString() {[m
+[32m+[m[32m        Meal etel = new Meal();[m
+[32m+[m[32m        etel.setName("retek");[m
+[32m+[m[41m        [m
+[32m+[m[32m        String expected = "retek";[m
+[32m+[m[41m        [m
+[32m+[m[32m        assertEquals(etel.getName(), expected);[m
+[32m+[m[32m    }[m[41m [m
+[32m+[m[32m}[m
+[1mdiff --git a/version1.2.1/target/Javaefix-1.0-SNAPSHOT.jar b/version1.2.1/target/Javaefix-1.0-SNAPSHOT.jar[m
+[1mindex 41b6b6d..fe6785f 100644[m
+Binary files a/version1.2.1/target/Javaefix-1.0-SNAPSHOT.jar and b/version1.2.1/target/Javaefix-1.0-SNAPSHOT.jar differ
+[1mdiff --git a/version1.2.1/target/classes/hu/unideb/inf/MainApp.class b/version1.2.1/target/classes/hu/unideb/inf/MainApp.class[m
+[1mindex 62c9f19..0ff1a5b 100644[m
+Binary files a/version1.2.1/target/classes/hu/unideb/inf/MainApp.class and b/version1.2.1/target/classes/hu/unideb/inf/MainApp.class differ
+[1mdiff --git a/version1.2.1/target/classes/hu/unideb/inf/model/Day.class b/version1.2.1/target/classes/hu/unideb/inf/model/Day.class[m
+[1mindex 2dae671..61d693e 100644[m
+Binary files a/version1.2.1/target/classes/hu/unideb/inf/model/Day.class and b/version1.2.1/target/classes/hu/unideb/inf/model/Day.class differ
+[1mdiff --git a/version1.2.1/target/maven-archiver/pom.properties b/version1.2.1/target/maven-archiver/pom.properties[m
+[1mindex 3d918d7..9cdc9dc 100644[m
+[1m--- a/version1.2.1/target/maven-archiver/pom.properties[m
+[1m+++ b/version1.2.1/target/maven-archiver/pom.properties[m
+[36m@@ -1,5 +1,5 @@[m
+ #Generated by Maven[m
+[31m-#Sat May 15 16:38:06 CEST 2021[m
+[32m+[m[32m#Sat May 15 16:57:39 CEST 2021[m
+ groupId=hu.unideb.inf[m
+ artifactId=Javaefix[m
+ version=1.0-SNAPSHOT[m
+[1mdiff --git a/version1.2.1/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst b/version1.2.1/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8bd0dd6[m
+[1m--- /dev/null[m
+[1m+++ b/version1.2.1/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32mhu\unideb\inf\model\MealTest.class[m
+[32m+[m[32mhu\unideb\inf\model\DayTest.class[m
+[1mdiff --git a/version1.2.1/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst b/version1.2.1/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6dc657f[m
+[1m--- /dev/null[m
+[1m+++ b/version1.2.1/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32mC:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\test\java\hu\unideb\inf\model\DayTest.java[m
+[32m+[m[32mC:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\test\java\hu\unideb\inf\model\MealTest.java[m
+[1mdiff --git a/version1.2.1/target/surefire-reports/TEST-hu.unideb.inf.model.DayTest.xml b/version1.2.1/target/surefire-reports/TEST-hu.unideb.inf.model.DayTest.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..37ca5ed[m
+[1m--- /dev/null[m
+[1m+++ b/version1.2.1/target/surefire-reports/TEST-hu.unideb.inf.model.DayTest.xml[m
+[36m@@ -0,0 +1,81 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8" ?>[m
+[32m+[m[32m<testsuite tests="18" failures="0" name="hu.unideb.inf.model.DayTest" time="0.03" errors="0" skipped="0">[m
+[32m+[m[32m  <properties>[m
+[32m+[m[32m    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>[m
+[32m+[m[32m    <property name="java.vm.version" value="15.0.2+7-27"/>[m
+[32m+[m[32m    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-15.0.2\bin"/>[m
+[32m+[m[32m    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1"/>[m
+[32m+[m[32m    <property name="java.vm.vendor" value="Oracle Corporation"/>[m
+[32m+[m[32m    <property name="java.vendor.url" value="https://java.oracle.com/"/>[m
+[32m+[m[32m    <property name="guice.disable.misplaced.annotation.check" value="true"/>[m
+[32m+[m[32m    <property name="path.separator" value=";"/>[m
+[32m+[m[32m    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>[m
+[32m+[m[32m    <property name="sun.os.patch.level" value=""/>[m
+[32m+[m[32m    <property name="user.script" value=""/>[m
+[32m+[m[32m    <property name="user.country" value="HU"/>[m
+[32m+[m[32m    <property name="sun.java.launcher" value="SUN_STANDARD"/>[m
+[32m+[m[32m    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>[m
+[32m+[m[32m    <property name="user.dir" value="C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1"/>[m
+[32m+[m[32m    <property name="java.vm.compressedOopsMode" value="32-bit"/>[m
+[32m+[m[32m    <property name="java.runtime.version" value="15.0.2+7-27"/>[m
+[32m+[m[32m    <property name="os.arch" value="amd64"/>[m
+[32m+[m[32m    <property name="java.io.tmpdir" value="C:\Users\Balage\AppData\Local\Temp\"/>[m
+[32m+[m[32m    <property name="line.separator" value="[m
+[32m+[m[32m"/>[m
+[32m+[m[32m    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>[m
+[32m+[m[32m    <property name="user.variant" value=""/>[m
+[32m+[m[32m    <property name="os.name" value="Windows 10"/>[m
+[32m+[m[32m    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>[m
+[32m+[m[32m    <property name="classworlds.conf" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven\bin\..\bin\m2.conf"/>[m
+[32m+[m[32m    <property name="sun.jnu.encoding" value="Cp1250"/>[m
+[32m+[m[32m    <property name="java.library.path" value="C:\Program Files\Java\jdk-15.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\MATLAB\R2018a\runtime\win64;C:\Program Files\MATLAB\R2018a\bin;C:\Users\Balage\AppData\Local\Microsoft\WindowsApps;;C:\Users\Balage\AppData\Local\Programs\Microsoft VS Code\bin;."/>[m
+[32m+[m[32m    <property name="maven.conf" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven\bin\../conf"/>[m
+[32m+[m[32m    <property name="jdk.debug" value="release"/>[m
+[32m+[m[32m    <property name="java.class.version" value="59.0"/>[m
+[32m+[m[32m    <property name="java.specification.name" value="Java Platform API Specification"/>[m
+[32m+[m[32m    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>[m
+[32m+[m[32m    <property name="runfx.args" value="-jar &quot;${project.build.directory}/${project.build.finalName}.jar&quot; "/>[m
+[32m+[m[32m    <property name="os.version" value="10.0"/>[m
+[32m+[m[32m    <property name="library.jansi.path" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven\bin\..\lib\jansi-native"/>[m
+[32m+[m[32m    <property name="user.home" value="C:\Users\Balage"/>[m
+[32m+[m[32m    <property name="user.timezone" value="Europe/Budapest"/>[m
+[32m+[m[32m    <property name="file.encoding" value="UTF-8"/>[m
+[32m+[m[32m    <property name="java.specification.version" value="15"/>[m
+[32m+[m[32m    <property name="user.name" value="Balage"/>[m
+[32m+[m[32m    <property name="java.class.path" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven\bin\..\boot\plexus-classworlds-2.6.0.jar"/>[m
+[32m+[m[32m    <property name="java.vm.specification.version" value="15"/>[m
+[32m+[m[32m    <property name="sun.arch.data.model" value="64"/>[m
+[32m+[m[32m    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Drunfx.args=-jar &quot;${project.build.directory}/${project.build.finalName}.jar&quot;  -Dmaven.ext.class.path=C:\Program Files\NetBeans-12.0\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 clean package org.codehaus.mojo:exec-maven-plugin:1.6.0:java"/>[m
+[32m+[m[32m    <property name="java.home" value="C:\Program Files\Java\jdk-15.0.2"/>[m
+[32m+[m[32m    <property name="user.language" value="hu"/>[m
+[32m+[m[32m    <property name="java.specification.vendor" value="Oracle Corporation"/>[m
+[32m+[m[32m    <property name="java.vm.info" value="mixed mode, sharing"/>[m
+[32m+[m[32m    <property name="java.version" value="15.0.2"/>[m
+[32m+[m[32m    <property name="java.vendor" value="Oracle Corporation"/>[m
+[32m+[m[32m    <property name="maven.home" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven\bin\.."/>[m
+[32m+[m[32m    <property name="file.separator" value="\"/>[m
+[32m+[m[32m    <property name="java.version.date" value="2021-01-19"/>[m
+[32m+[m[32m    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>[m
+[32m+[m[32m    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>[m
+[32m+[m[32m    <property name="sun.cpu.endian" value="little"/>[m
+[32m+[m[32m    <property name="sun.cpu.isalist" value="amd64"/>[m
+[32m+[m[32m  </properties>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetCh" time="0.005"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetFat" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetFat" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetMeal" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetDatum" time="0.024"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetDatum" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetUsr" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetCh" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetId" time="0.001"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetKcal" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetUsr" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetMeal" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetGramm" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetId" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetGramm" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetProtein" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetProtein" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetKcal" time="0"/>[m
+[32m+[m[32m</testsuite>[m
+\ No newline at end of file[m
+[1mdiff --git a/version1.2.1/target/surefire-reports/TEST-hu.unideb.inf.model.MealTest.xml b/version1.2.1/target/surefire-reports/TEST-hu.unideb.inf.model.MealTest.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..340bc42[m
+[1m--- /dev/null[m
+[1m+++ b/version1.2.1/target/surefire-reports/TEST-hu.unideb.inf.model.MealTest.xml[m
+[36m@@ -0,0 +1,78 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8" ?>[m
+[32m+[m[32m<testsuite tests="15" failures="0" name="hu.unideb.inf.model.MealTest" time="0" errors="0" skipped="0">[m
+[32m+[m[32m  <properties>[m
+[32m+[m[32m    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>[m
+[32m+[m[32m    <property name="java.vm.version" value="15.0.2+7-27"/>[m
+[32m+[m[32m    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-15.0.2\bin"/>[m
+[32m+[m[32m    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1"/>[m
+[32m+[m[32m    <property name="java.vm.vendor" value="Oracle Corporation"/>[m
+[32m+[m[32m    <property name="java.vendor.url" value="https://java.oracle.com/"/>[m
+[32m+[m[32m    <property name="guice.disable.misplaced.annotation.check" value="true"/>[m
+[32m+[m[32m    <property name="path.separator" value=";"/>[m
+[32m+[m[32m    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>[m
+[32m+[m[32m    <property name="sun.os.patch.level" value=""/>[m
+[32m+[m[32m    <property name="user.script" value=""/>[m
+[32m+[m[32m    <property name="user.country" value="HU"/>[m
+[32m+[m[32m    <property name="sun.java.launcher" value="SUN_STANDARD"/>[m
+[32m+[m[32m    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>[m
+[32m+[m[32m    <property name="user.dir" value="C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1"/>[m
+[32m+[m[32m    <property name="java.vm.compressedOopsMode" value="32-bit"/>[m
+[32m+[m[32m    <property name="java.runtime.version" value="15.0.2+7-27"/>[m
+[32m+[m[32m    <property name="os.arch" value="amd64"/>[m
+[32m+[m[32m    <property name="java.io.tmpdir" value="C:\Users\Balage\AppData\Local\Temp\"/>[m
+[32m+[m[32m    <property name="line.separator" value="[m
+[32m+[m[32m"/>[m
+[32m+[m[32m    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>[m
+[32m+[m[32m    <property name="user.variant" value=""/>[m
+[32m+[m[32m    <property name="os.name" value="Windows 10"/>[m
+[32m+[m[32m    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>[m
+[32m+[m[32m    <property name="classworlds.conf" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven\bin\..\bin\m2.conf"/>[m
+[32m+[m[32m    <property name="sun.jnu.encoding" value="Cp1250"/>[m
+[32m+[m[32m    <property name="java.library.path" value="C:\Program Files\Java\jdk-15.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\MATLAB\R2018a\runtime\win64;C:\Program Files\MATLAB\R2018a\bin;C:\Users\Balage\AppData\Local\Microsoft\WindowsApps;;C:\Users\Balage\AppData\Local\Programs\Microsoft VS Code\bin;."/>[m
+[32m+[m[32m    <property name="maven.conf" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven\bin\../conf"/>[m
+[32m+[m[32m    <property name="jdk.debug" value="release"/>[m
+[32m+[m[32m    <property name="java.class.version" value="59.0"/>[m
+[32m+[m[32m    <property name="java.specification.name" value="Java Platform API Specification"/>[m
+[32m+[m[32m    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>[m
+[32m+[m[32m    <property name="runfx.args" value="-jar &quot;${project.build.directory}/${project.build.finalName}.jar&quot; "/>[m
+[32m+[m[32m    <property name="os.version" value="10.0"/>[m
+[32m+[m[32m    <property name="library.jansi.path" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven\bin\..\lib\jansi-native"/>[m
+[32m+[m[32m    <property name="user.home" value="C:\Users\Balage"/>[m
+[32m+[m[32m    <property name="user.timezone" value="Europe/Budapest"/>[m
+[32m+[m[32m    <property name="file.encoding" value="UTF-8"/>[m
+[32m+[m[32m    <property name="java.specification.version" value="15"/>[m
+[32m+[m[32m    <property name="user.name" value="Balage"/>[m
+[32m+[m[32m    <property name="java.class.path" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven\bin\..\boot\plexus-classworlds-2.6.0.jar"/>[m
+[32m+[m[32m    <property name="java.vm.specification.version" value="15"/>[m
+[32m+[m[32m    <property name="sun.arch.data.model" value="64"/>[m
+[32m+[m[32m    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Drunfx.args=-jar &quot;${project.build.directory}/${project.build.finalName}.jar&quot;  -Dmaven.ext.class.path=C:\Program Files\NetBeans-12.0\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 clean package org.codehaus.mojo:exec-maven-plugin:1.6.0:java"/>[m
+[32m+[m[32m    <property name="java.home" value="C:\Program Files\Java\jdk-15.0.2"/>[m
+[32m+[m[32m    <property name="user.language" value="hu"/>[m
+[32m+[m[32m    <property name="java.specification.vendor" value="Oracle Corporation"/>[m
+[32m+[m[32m    <property name="java.vm.info" value="mixed mode, sharing"/>[m
+[32m+[m[32m    <property name="java.version" value="15.0.2"/>[m
+[32m+[m[32m    <property name="java.vendor" value="Oracle Corporation"/>[m
+[32m+[m[32m    <property name="maven.home" value="C:\Program Files\NetBeans-12.0\netbeans\java\maven\bin\.."/>[m
+[32m+[m[32m    <property name="file.separator" value="\"/>[m
+[32m+[m[32m    <property name="java.version.date" value="2021-01-19"/>[m
+[32m+[m[32m    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>[m
+[32m+[m[32m    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>[m
+[32m+[m[32m    <property name="sun.cpu.endian" value="little"/>[m
+[32m+[m[32m    <property name="sun.cpu.isalist" value="amd64"/>[m
+[32m+[m[32m  </properties>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testToString" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetPortion" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetPortion" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetName" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetCh" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetFat" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetFat" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetCh" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetId" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetKcal" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetName" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetId" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetProtein" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetProtein" time="0"/>[m
+[32m+[m[32m  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetKcal" time="0"/>[m
+[32m+[m[32m</testsuite>[m
+\ No newline at end of file[m
+[1mdiff --git a/version1.2.1/target/surefire-reports/hu.unideb.inf.model.DayTest.txt b/version1.2.1/target/surefire-reports/hu.unideb.inf.model.DayTest.txt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..da613f1[m
+[1m--- /dev/null[m
+[1m+++ b/version1.2.1/target/surefire-reports/hu.unideb.inf.model.DayTest.txt[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m-------------------------------------------------------------------------------[m
+[32m+[m[32mTest set: hu.unideb.inf.model.DayTest[m
+[32m+[m[32m-------------------------------------------------------------------------------[m
+[32m+[m[32mTests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec[m
+[1mdiff --git a/version1.2.1/target/surefire-reports/hu.unideb.inf.model.MealTest.txt b/version1.2.1/target/surefire-reports/hu.unideb.inf.model.MealTest.txt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6ffeb3f[m
+[1m--- /dev/null[m
+[1m+++ b/version1.2.1/target/surefire-reports/hu.unideb.inf.model.MealTest.txt[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m-------------------------------------------------------------------------------[m
+[32m+[m[32mTest set: hu.unideb.inf.model.MealTest[m
+[32m+[m[32m-------------------------------------------------------------------------------[m
+[32m+[m[32mTests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec[m
+[1mdiff --git a/version1.2.1/target/test-classes/hu/unideb/inf/model/DayTest.class b/version1.2.1/target/test-classes/hu/unideb/inf/model/DayTest.class[m
+[1mnew file mode 100644[m
+[1mindex 0000000..94b7cec[m
+Binary files /dev/null and b/version1.2.1/target/test-classes/hu/unideb/inf/model/DayTest.class differ
+[1mdiff --git a/version1.2.1/target/test-classes/hu/unideb/inf/model/MealTest.class b/version1.2.1/target/test-classes/hu/unideb/inf/model/MealTest.class[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8b2265d[m
+Binary files /dev/null and b/version1.2.1/target/test-classes/hu/unideb/inf/model/MealTest.class differ

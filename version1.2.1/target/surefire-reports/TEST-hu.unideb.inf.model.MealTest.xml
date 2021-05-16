@@ -60,19 +60,19 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetId" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetKcal" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetId" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetFat" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetProtein" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetKcal" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetCh" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetCh" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetProtein" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetFat" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetName" time="0"/>
+  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetName" time="0"/>
   <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testToString" time="0"/>
   <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetPortion" time="0"/>
   <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetPortion" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetName" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetCh" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetFat" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetFat" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetCh" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetId" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetKcal" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetName" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetId" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetProtein" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testSetProtein" time="0"/>
-  <testcase classname="hu.unideb.inf.model.MealTest" name="hu.unideb.inf.model.MealTest.testGetKcal" time="0"/>
 </testsuite>
