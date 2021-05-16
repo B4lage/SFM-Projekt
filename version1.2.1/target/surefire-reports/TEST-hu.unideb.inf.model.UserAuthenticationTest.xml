@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="18" failures="0" name="hu.unideb.inf.model.DayTest" time="0.024" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="hu.unideb.inf.model.UserAuthenticationTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="15.0.2+7-27"/>
@@ -60,22 +60,10 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetCh" time="0.005"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetFat" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetFat" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetUsr" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetMeal" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetId" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetGramm" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetGramm" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetId" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetKcal" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetMeal" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetProtein" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetCh" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetProtein" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetUsr" time="0.001"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testGetDatum" time="0.018"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetDatum" time="0"/>
-  <testcase classname="hu.unideb.inf.model.DayTest" name="hu.unideb.inf.model.DayTest.testSetKcal" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testGetName" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testGetId" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testSetId" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testSetName" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testSetPw" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testGetPw" time="0"/>
 </testsuite>
