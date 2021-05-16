@@ -16,7 +16,7 @@
 }
 
 .label{
-    -fx-font-family: URL("https://fonts.googleapis.com/css?family=Raleway");
+    -fx-font-family: "https://fonts.googleapis.com/css?family=Raleway";
     -fx-text-fill: rgb(255,255,255);
     -fx-font-weight: bold;
 }
