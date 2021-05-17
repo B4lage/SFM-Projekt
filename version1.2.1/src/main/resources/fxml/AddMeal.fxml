@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" fillWidth="false" maxHeight="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.AddMealController">
+<VBox alignment="CENTER" fillWidth="false" maxHeight="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.AddMealController">
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="1080.0">
          <children>
@@ -62,14 +62,14 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TableView fx:id="mealsTable" layoutX="333.0" layoutY="159.0" onMouseClicked="#onMouseClicked" prefHeight="284.0" prefWidth="449.0">
+            <TableView id="TableViewMy" fx:id="mealsTable" layoutX="333.0" layoutY="159.0" onMouseClicked="#onMouseClicked" prefHeight="284.0" prefWidth="449.0">
                <columns>
-                  <TableColumn fx:id="Tname" prefWidth="146.0" text="Név" />
-                  <TableColumn fx:id="Tfat" prefWidth="49.0" text="zsír" />
-                  <TableColumn fx:id="Tkcal" minWidth="0.0" prefWidth="57.0" text="kcal/100" />
-                  <TableColumn fx:id="Tprot" prefWidth="56.0" text="fehérje" />
-                  <TableColumn fx:id="Tch" prefWidth="75.0" text="szénhidrát" />
-                  <TableColumn fx:id="Tportion" prefWidth="88.0" text="adag" />
+                  <TableColumn id="coulom" fx:id="Tname" prefWidth="146.0" text="Név" />
+                  <TableColumn id="coulom" fx:id="Tfat" prefWidth="49.0" text="zsír" />
+                  <TableColumn id="coulom" fx:id="Tkcal" minWidth="0.0" prefWidth="57.0" text="kcal/100" />
+                  <TableColumn id="coulom" fx:id="Tprot" prefWidth="56.0" text="fehérje" />
+                  <TableColumn id="coulom" fx:id="Tch" prefWidth="75.0" text="szénhidrát" />
+                  <TableColumn id="coulom" fx:id="Tportion" prefWidth="88.0" text="adag" />
                </columns>
             </TableView>
             <Label layoutX="147.0" layoutY="480.0" text="Mennyit ettél:">
