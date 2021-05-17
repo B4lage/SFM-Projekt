@@ -1,24 +1,24 @@
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\MealsController.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\ActualUser.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\DefaultPageController.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\DataShowController.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\UserAuthenticationDao.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\MainApp.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\DayDao.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaUserAuthenticationDao.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\CreateNewMealController.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\LoginController.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaDayDao.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\UserDao.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\MainPageController.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\Day.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\MealDao.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\DataInController.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\LeirasController.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaUserDao.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\RegistrationController.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\UserAuthentication.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\AddMealController.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaMealDao.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\User.java
-C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\Meal.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\controller\MainPageController.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\controller\MealsController.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\MealDao.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\controller\DefaultPageController.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\JpaUserDao.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\UserAuthenticationDao.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\controller\LoginController.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\JpaMealDao.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\Meal.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\controller\AddMealController.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\User.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\MainApp.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\DayDao.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\controller\LeirasController.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\controller\RegistrationController.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\JpaDayDao.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\controller\DataInController.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\JpaUserAuthenticationDao.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\UserDao.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\controller\CreateNewMealController.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\ActualUser.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\UserAuthentication.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\model\Day.java
+C:\Users\Erichox\Desktop\Egyetem\4-félév\02_Szoftverfejlesztes_mernokoknek\Új mappa (2)\version1.2.1\src\main\java\hu\unideb\inf\controller\DataShowController.java
