@@ -1,0 +1,57 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2021. máj. 25., 16:50:16
+    Author     : roli1
+*/
+
+.myDialog{
+  -fx-border-color:black;
+  -fx-border-width:1.0px;
+  -fx-background-color: white;
+ }
+ 
+.myDialog > *.label.content{
+    -fx-font-size: 16px;
+}
+
+.myDialog:header .header-panel{
+    -fx-background-color: #e2747e; 
+    
+}
+
+.myDialog:header .header-panel .label{
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-alignment:CENTER;
+}
+.alert.error.myDialog {
+    -fx-graphic: url("icon.png");
+}
+
+.myDialog .button{
+   -fx-background-color: #e2747e;
+   -fx-text-fill:white;
+   -fx-wrap-text: true;
+   -fx-cursor:hand;
+   -fx-alignment:BOTTOM_CENTER
+}
+
+.myDialog .button-bar{
+}
+ 
+.myDialog .button:hover{     
+  -fx-background-color:white;
+  -fx-text-fill:#e2747e;
+  -fx-effect: dropshadow( three-pass-box, #e2747e, 10.0, 0.0, 0.0, 0.0);
+  -fx-font-weight:bold; 
+}
+
+
+
+
+

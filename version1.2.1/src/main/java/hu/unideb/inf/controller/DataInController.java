@@ -24,9 +24,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.StageStyle;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -71,26 +73,34 @@ public class DataInController implements Initializable {
 
     @FXML
     private void handleMentesButtonClicked() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("/fxml/dialog.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialog");
+        alert.initStyle(StageStyle.UTILITY);
         
         if(szulEvErtek.getValue() == null)
         {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Hibás dátum!");
-            alert.setHeaderText("Nincs kiválasztva dátum!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Hibás dátum!");
+            alert.setContentText("Nincs kiválasztva dátum!");
             alert.showAndWait();
         }
         else if(nem.getSelectedToggle() == null)
         {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Nincs nem kiválasztva!");
-            alert.setHeaderText("Válassz nemet!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Nincs nem kiválasztva!");
+            alert.setContentText("Válassz nemet!");
             alert.showAndWait();
         }
         else if(comboBox.getSelectionModel().getSelectedItem() == null)
         {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Nincs aktivitás kiválasztva!");
-            alert.setHeaderText("Válassz aktivitást!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Nincs aktivitás kiválasztva!");
+            alert.setContentText("Válassz aktivitást!");
             alert.showAndWait();
         }
         else
