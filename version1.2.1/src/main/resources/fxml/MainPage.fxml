@@ -8,7 +8,8 @@
 
 <VBox alignment="CENTER" fillWidth="false" stylesheets="@application.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.MainPageController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="631.0" prefWidth="600.0">
+       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to left bottom, #5AE416, #00CA68, #00AB8D, #008A95, #006881, #2F4858);" />
+      <AnchorPane fx:id="bckgrund" id="AnchorPane" prefHeight="631.0" prefWidth="600.0">
          <children>
             <Button layoutX="52.0" layoutY="49.0" mnemonicParsing="false" onAction="#switchToMeals" prefHeight="142.0" prefWidth="225.0" style="-fx-border-radius: 100;" text="Reggeli">
                <font>
