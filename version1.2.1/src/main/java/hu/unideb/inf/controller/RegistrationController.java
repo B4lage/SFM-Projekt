@@ -18,10 +18,12 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.stage.StageStyle;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -97,41 +99,50 @@ public class RegistrationController implements Initializable
         
     @FXML
     void handleRegisztracioButtonClicked() throws IOException {
-        
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("/fxml/dialog.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialog");
+        alert.initStyle(StageStyle.UTILITY);
         TypedQuery<UserAuthentication> query = entityManager.createQuery("SELECT a FROM UserAuthentication a WHERE NAME ='"+felhNev.getText()+"'", UserAuthentication.class);
         if(felhNev.getText()== "")
         {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Hibás felhasználónév!");
-            alert.setHeaderText("Adj meg érvényes felhasználónevet!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Hibás felhasználónév!");
+            alert.setContentText("Adj meg érvényes felhasználónevet!");
             alert.showAndWait();
         }
         else if(query.getResultList().size() != 0)
         {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Foglalt felhasználónév!");
-            alert.setHeaderText("Ez a felhasználónév foglalt!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Foglalt felhasználónév!");
+            alert.setContentText("Ez a felhasználónév foglalt!");
             alert.showAndWait();
         }
         else if(jelszoErtek.getText() == "" || jelszoErosites.getText() == "")
         {            
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Hibás jelszó!");
-            alert.setHeaderText("Adj meg érvényes jelszót!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Hibás jelszó!");
+            alert.setContentText("Adj meg érvényes jelszót!");
             alert.showAndWait();
         }
         else if(!jelszoErtek.getText().equals(jelszoErosites.getText()))
         {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Hibás jelszó!");
-            alert.setHeaderText("A két jelszónak egyezőnek kell lennie!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Hibás jelszó!");
+            alert.setContentText("A két jelszónak egyezőnek kell lennie!");
             alert.showAndWait();
         }
         else if(getStrength(jelszoErtek.getText()) != 1)
         {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Gyenge jelszó!");
-            alert.setHeaderText("A jelszónak minimum 4 karakter hosszúnak kell lennie, tartalmaznia kell számot és speciális karaktert!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Gyenge jelszó!");
+            alert.setContentText("A jelszónak minimum 4 karakter hosszúnak kell lennie, tartalmaznia kell számot és speciális karaktert!");
             alert.showAndWait();
         }
         else
