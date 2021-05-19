@@ -16,7 +16,8 @@
 
 <VBox alignment="CENTER" fillWidth="false" maxHeight="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.RegistrationController">
    <children>
-      <AnchorPane prefHeight="720.0" prefWidth="1080.0">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to left bottom, #5AE416, #00CA68, #00AB8D, #008A95, #006881, #2F4858);" />
+      <AnchorPane fx:id="bckgrund" prefHeight="720.0" prefWidth="1080.0">
          <children>
             <AnchorPane id="AnchorPane" layoutX="165.0" layoutY="97.0" prefHeight="527.0" prefWidth="750.0">
                <children>

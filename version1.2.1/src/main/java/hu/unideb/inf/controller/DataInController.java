@@ -79,6 +79,27 @@ public class DataInController implements Initializable {
         dialogPane.getStyleClass().add("myDialog");
         alert.initStyle(StageStyle.UTILITY);
         
+        boolean isValidSuly = true;
+        boolean isValidMagassag = true;
+        
+            try
+            {
+              Double.parseDouble(sulyErtek.getText());
+            }
+            catch(NumberFormatException e)
+            {
+              isValidSuly = false;
+            }
+            
+            try
+            {
+              Integer.parseInt(magassagErtek.getText());
+            }
+            catch(NumberFormatException e)
+            {
+              isValidMagassag = false;
+            }
+        
         if(szulEvErtek.getValue() == null)
         {
             //Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -101,6 +122,30 @@ public class DataInController implements Initializable {
             alert.setTitle("Error");
             alert.setHeaderText("Nincs aktivitás kiválasztva!");
             alert.setContentText("Válassz aktivitást!");
+            alert.showAndWait();
+        }
+        else if(!isValidSuly)
+        {
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Nem megfelelő súly!");
+            alert.setContentText("Adj meg egy érvényes súly értéket kg-ban!");
+            alert.showAndWait();
+        }
+        else if(!isValidMagassag)
+        {
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Nem megfelelő magasság!");
+            alert.setContentText("Adj meg egy egész számot, ami megadja a magasságod cm-ben!");
+            alert.showAndWait();
+        }
+        else if(nevErtek.getText() == "")
+        {
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Érvénytelen név!");
+            alert.setContentText("Add meg a neved!");
             alert.showAndWait();
         }
         else

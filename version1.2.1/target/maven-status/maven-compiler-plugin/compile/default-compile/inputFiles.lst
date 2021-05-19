@@ -1,24 +1,24 @@
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\Meal.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\LeirasController.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaUserAuthenticationDao.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\DataShowController.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\ActualUser.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\DataInController.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\DefaultPageController.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\UserDao.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\MainPageController.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\MealsController.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaDayDao.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\MainApp.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\MealDao.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\CreateNewMealController.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\Day.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\AddMealController.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\LoginController.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaMealDao.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\RegistrationController.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\UserAuthenticationDao.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\DayDao.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaUserDao.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\User.java
-D:\Letöltések\Egyetem\4. félév\SFM\projekt\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\UserAuthentication.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\MealsController.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\ActualUser.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\DefaultPageController.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\DataShowController.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\UserAuthenticationDao.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\MainApp.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\DayDao.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaUserAuthenticationDao.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\CreateNewMealController.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\LoginController.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaDayDao.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\UserDao.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\MainPageController.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\Day.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\MealDao.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\DataInController.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\LeirasController.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaUserDao.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\RegistrationController.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\UserAuthentication.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\controller\AddMealController.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\JpaMealDao.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\User.java
+C:\Users\Balage\Documents\SFM\SFM-Projekt\version1.2.1\src\main\java\hu\unideb\inf\model\Meal.java
