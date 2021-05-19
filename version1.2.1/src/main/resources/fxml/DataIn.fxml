@@ -115,9 +115,14 @@
                   <Button fx:id="megseButton" layoutX="275.0" layoutY="355.0" mnemonicParsing="false" onAction="#handeMegseButtonClicked" text="Mégse" />
                </children>
             </AnchorPane>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" onMouseEntered="#mutat" onMouseExited="#takar" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@monke.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="monkee" fitHeight="103.0" fitWidth="145.0" layoutX="905.0" layoutY="528.0" pickOnBounds="true" preserveRatio="true" styleClass="monkey">
+               <image>
+                  <Image url="@buborek.png" />
                </image>
             </ImageView>
             <MenuBar prefHeight="30.0" prefWidth="1080.0">

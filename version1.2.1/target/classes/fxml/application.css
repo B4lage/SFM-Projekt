@@ -122,4 +122,7 @@
     -fx-padding: 0.0em;
 }
 
+.monkey{
+    -fx-opacity: 0.0;
+}
  

@@ -65,9 +65,14 @@
                   <Image url="@106-1065648_healthy-food-png-image-with-transparent-background-healthy.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" onMouseEntered="#mutat" onMouseExited="#takar" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@monke.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="monkee" fitHeight="103.0" fitWidth="145.0" layoutX="905.0" layoutY="528.0" pickOnBounds="true" preserveRatio="true" styleClass="monkey">
+               <image>
+                  <Image url="@buborek.png" />
                </image>
             </ImageView>
          </children>

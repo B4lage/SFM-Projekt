@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="16" failures="0" name="hu.unideb.inf.model.UserTest" time="0.002" errors="0" skipped="0">
+<testsuite tests="16" failures="0" name="hu.unideb.inf.model.UserTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="15.0.2+7-27"/>
@@ -60,20 +60,20 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetId" time="0.001"/>
+  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetId" time="0"/>
   <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetId" time="0"/>
   <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetName" time="0"/>
   <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetName" time="0"/>
-  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetMagassag" time="0"/>
-  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetKor" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetFelhasznalo" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetNem" time="0"/>
   <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetMagassag" time="0"/>
   <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetSuly" time="0"/>
-  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetAktivitas" time="0.001"/>
-  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetNem" time="0"/>
-  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetAktivitas" time="0"/>
   <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetFelhasznalo" time="0"/>
-  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetNem" time="0"/>
-  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetKor" time="0"/>
   <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetSuly" time="0"/>
-  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetFelhasznalo" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetAktivitas" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetAktivitas" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetMagassag" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetNem" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testGetKor" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserTest" name="hu.unideb.inf.model.UserTest.testSetKor" time="0"/>
 </testsuite>

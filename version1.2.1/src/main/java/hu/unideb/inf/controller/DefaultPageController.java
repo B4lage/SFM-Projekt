@@ -23,6 +23,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -50,6 +51,10 @@ public class DefaultPageController implements Initializable{
     private double actF;
     
     private double celKcalDouble ;
+    
+    
+    @FXML
+    private ImageView monkee;
     
      @FXML
     private AnchorPane bckgrund;
@@ -194,7 +199,7 @@ public class DefaultPageController implements Initializable{
     
     @FXML
     void comein() {
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.1), bckgrund);
         fadeIn.setFromValue(0.0);
         fadeIn.setToValue(1.0);
         fadeIn.play();
@@ -202,7 +207,7 @@ public class DefaultPageController implements Initializable{
     
     @FXML
     void comeout(String s) throws IOException {
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.1), bckgrund);
         fadeOut.setFromValue(1.0);
         fadeOut.setToValue(0.0);
         fadeOut.setOnFinished(e -> {
@@ -237,6 +242,22 @@ public class DefaultPageController implements Initializable{
             MealsController.ma = datumValaszto.getValue();
             comeout("Meals");
         }
+    }
+    
+    @FXML
+    void mutat() throws InterruptedException{
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), monkee);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(01.0);
+        fadeIn.play(); 
+    }
+    
+    @FXML
+    void takar() {
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.2), monkee);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.play(); 
     }
 
     @Override

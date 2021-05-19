@@ -29,6 +29,7 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -43,6 +44,9 @@ public class AddMealController implements Initializable{
     final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
+    @FXML
+    private ImageView monkee;    
+    
     @FXML
     private AnchorPane bckgrund;
     
@@ -234,7 +238,7 @@ public class AddMealController implements Initializable{
     
     @FXML
     void comein() {
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.1), bckgrund);
         fadeIn.setFromValue(0.0);
         fadeIn.setToValue(1.0);
         fadeIn.play();
@@ -242,7 +246,7 @@ public class AddMealController implements Initializable{
     
     @FXML
     void comeout(String s) throws IOException {
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.1), bckgrund);
         fadeOut.setFromValue(1.0);
         fadeOut.setToValue(0.0);
         fadeOut.setOnFinished(e -> {
@@ -257,6 +261,23 @@ public class AddMealController implements Initializable{
     
     // Menubar vege
 
+    @FXML
+    void mutat() throws InterruptedException{
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), monkee);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(01.0);
+        fadeIn.play(); 
+    }
+    
+    @FXML
+    void takar() {
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.2), monkee);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.play(); 
+    }
+
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         comein();
