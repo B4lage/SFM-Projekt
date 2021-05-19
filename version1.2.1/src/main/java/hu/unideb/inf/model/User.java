@@ -73,7 +73,7 @@ public class User {
         this.nem = nem;
     }
 
-    public double getMagassag() {
+    public int getMagassag() {
         return magassag;
     }
 

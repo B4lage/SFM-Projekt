@@ -7,7 +7,6 @@ hu\unideb\inf\controller\DataShowController.class
 hu\unideb\inf\model\DayDao.class
 hu\unideb\inf\controller\LeirasController.class
 hu\unideb\inf\model\UserAuthentication.class
-hu\unideb\inf\controller\MainPageController.class
 hu\unideb\inf\model\UserAuthenticationDao.class
 hu\unideb\inf\model\MealDao.class
 hu\unideb\inf\controller\MealsController.class

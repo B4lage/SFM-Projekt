@@ -5,8 +5,11 @@ import hu.unideb.inf.model.JpaMealDao;
 import hu.unideb.inf.model.Meal;
 import hu.unideb.inf.model.MealDao;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
@@ -20,7 +23,7 @@ import javax.persistence.Persistence;
  *
  * @author roli1
  */
-public class CreateNewMealController{
+public class CreateNewMealController implements Initializable{
     @FXML
     private TextField etelNeve;
 
@@ -243,5 +246,8 @@ public class CreateNewMealController{
     }
     
     // Menubar vege
-    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        
+    }    
 }
