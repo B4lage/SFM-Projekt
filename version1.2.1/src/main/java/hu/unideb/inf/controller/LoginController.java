@@ -19,8 +19,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.StageStyle;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -59,10 +61,15 @@ public class LoginController implements Initializable {
         String nev = felhNev.getText();
         String jelszo = jelszoErtek.getText();
         TypedQuery<UserAuthentication>query = entityManager.createQuery("SELECT a FROM UserAuthentication a WHERE NAME ='"+nev+"'", UserAuthentication.class);
+        Alert alert = new Alert(AlertType.ERROR);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("/fxml/dialog.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialog");
+        alert.initStyle(StageStyle.UTILITY);
         if(query.getResultList().size() == 0)
         {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Hibás felhasználó!");
+            
+            alert.setTitle("Error");
             alert.setHeaderText("Nincs ilyen felhasználó!");
             alert.setContentText("Próbáld újra, vagy regisztrálj!");
             alert.showAndWait();
@@ -71,9 +78,10 @@ public class LoginController implements Initializable {
             tovabb(query);
         }
         else{
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Hibás jelszó!");
-            alert.setHeaderText("Hibás jelszó! Próbáld újra!");
+            
+            alert.setTitle("Error");
+            alert.setHeaderText("Hibás jelszó!");
+            alert.setContentText("Próbáld újra!");
             alert.showAndWait();
         }
     }

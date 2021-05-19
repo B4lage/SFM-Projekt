@@ -18,6 +18,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.SelectionMode;
@@ -27,6 +28,7 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.StageStyle;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -109,18 +111,51 @@ public class AddMealController implements Initializable{
     
     @FXML
     void handleHozzaadomANapomhozButtonClicked() throws IOException{
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("/fxml/dialog.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialog");
+        alert.initStyle(StageStyle.UTILITY);
+        boolean isValidAdag = true;
+        try
+        {
+            Double.parseDouble(mennyitEvett.getText());
+        }
+        catch(NumberFormatException e)
+        {
+            isValidAdag = false;
+        }
+        try
+        {
+            Integer.parseInt(mennyitEvett.getText());
+        }
+        catch(NumberFormatException e)
+        {
+            isValidAdag = false;
+        }
+        
         if(mitEvett.getText() == "")
         {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Hibás étel!");
-            alert.setHeaderText("Add meg az étel nevét!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Hibás étel!");
+            alert.setContentText("Add meg az étel nevét!");
             alert.showAndWait();
         }
         else if(mennyitEvett.getText() == "")
         {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Hibás mennyiség!");
-            alert.setHeaderText("Add meg, hogy mennyit ettél az adott ételből!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Hibás mennyiség!");
+            alert.setContentText("Add meg, hogy mennyit ettél az adott ételből!");
+            alert.showAndWait();
+        }
+        else if(!isValidAdag)
+        {
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Hibás adatok!");
+            alert.setContentText("Az étel mennyiségét egész számmal vagy tizedes törttel add meg!");
             alert.showAndWait();
         }
         else
