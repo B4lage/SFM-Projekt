@@ -17,36 +17,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" fillWidth="false" maxHeight="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.AddMealController">
+<VBox alignment="CENTER" fillWidth="false" maxHeight="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.AddMealController">
    <children>
-      <AnchorPane prefHeight="720.0" prefWidth="1080.0">
+       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to left bottom, #5AE416, #00CA68, #00AB8D, #008A95, #006881, #2F4858);" />
+      <AnchorPane fx:id="bckgrund" prefHeight="720.0" prefWidth="1080.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="563.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@106-1065648_healthy-food-png-image-with-transparent-background-healthy.png" />
                </image>
             </ImageView>
-            <MenuBar prefHeight="30.0" prefWidth="1080.0">
-               <menus>
-                  <Menu mnemonicParsing="false" text="Felhasználó">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuHandleAdataimPushed" text="Adataim" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#menuHandleKijelentkezesButtonClicked" text="Kijelentkezés" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Navigáció">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuHandleFooldalButtonClicked" text="Főoldal" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Súgó">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuHandleLeirasButtonClicked" text="Leírás" />
-                     </items>
-                  </Menu>
-               </menus>
-            </MenuBar>
             <Label layoutX="448.0" layoutY="60.0" text="Étkezés hozzáadása">
                <font>
                   <Font size="24.0" />
@@ -95,6 +75,27 @@
                   <Font size="14.0" />
                </font>
             </Button>
+            <MenuBar prefHeight="30.0" prefWidth="1080.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Felhasználó">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuHandleAdataimPushed" text="Adataim" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#menuHandleKijelentkezesButtonClicked" text="Kijelentkezés" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Navigáció">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuHandleFooldalButtonClicked" text="Főoldal" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Súgó">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuHandleLeirasButtonClicked" text="Leírás" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@monke.png" />
