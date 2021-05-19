@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,7 +23,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -47,6 +50,10 @@ public class DefaultPageController implements Initializable{
     private double actF;
     
     private double celKcalDouble ;
+    
+     @FXML
+    private AnchorPane bckgrund;
+    
     @FXML
     private Label elfogyasztottKcal;
 
@@ -155,30 +162,57 @@ public class DefaultPageController implements Initializable{
     }
     @FXML
     void handleAdataimMegtekinteseButtonClicked() throws IOException {
-        MainApp.setRoot("DataShow");
+        comeout("DataShow");
     }
     
     // Menubar
     
     @FXML
     void menuHandleAdataimPushed() throws IOException {
-        MainApp.setRoot("DataShow");
+        comeout("DataShow");
+        //MainApp.setRoot("DataShow");
     }
     
     @FXML
     void menuHandleKijelentkezesButtonClicked() throws IOException {
-        MainApp.setRoot("Login");
+        comeout("Login");
+        //MainApp.setRoot("Login");
     }
     
     @FXML
     void menuHandleFooldalButtonClicked() throws IOException {
-        MainApp.setRoot("DefaultPage");
+        comeout("DefaultPage");
+        //MainApp.setRoot("DefaultPage");
     }
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
-        LeirasController.previous = "DefaultPage";
-        MainApp.setRoot("Leiras");
+        LeirasController.previous = "AddMeal";
+        comeout("Leiras");
+        //MainApp.setRoot("Leiras");
+    }
+    
+    @FXML
+    void comein() {
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
+    
+    @FXML
+    void comeout(String s) throws IOException {
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setOnFinished(e -> {
+            try {
+                MainApp.setRoot(s);
+            } catch (IOException ex) {
+                
+            }
+        });
+        fadeOut.play();
     }
     
     // Menubar vege
@@ -201,12 +235,13 @@ public class DefaultPageController implements Initializable{
         }
         else{
             MealsController.ma = datumValaszto.getValue();
-            MainApp.setRoot("Meals");
+            comeout("Meals");
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        comein();
         ld = LocalDate.now();
         showData();    
     }

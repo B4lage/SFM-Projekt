@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +17,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -33,6 +36,9 @@ public class MealsController implements Initializable{
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
     
     public static LocalDate ma;
+    
+     @FXML
+    private AnchorPane bckgrund;
     
     @FXML
     private Label LabKcal;
@@ -69,16 +75,17 @@ public class MealsController implements Initializable{
 
     @FXML
     void switchToAddMeal() throws IOException{
-        MainApp.setRoot("AddMeal");
+        comeout("AddMeal");
     }
     
     @FXML
     void handleVisszaButtonClicked() throws IOException{
-        MainApp.setRoot("DefaultPage");
+        comeout("DefaultPage");
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        comein();
         System.out.println(ma.toString());
         TypedQuery<Day> query = entityManager.createQuery("SELECT d FROM Day d WHERE DATUM = '"+ma.toString()+"' AND USERID = "+ActualUser.actUser.getId(),Day.class);
         oblist.addAll(query.getResultList());
@@ -109,23 +116,50 @@ public class MealsController implements Initializable{
     
     @FXML
     void menuHandleAdataimPushed() throws IOException {
-        MainApp.setRoot("DataShow");
+        comeout("DataShow");
+        //MainApp.setRoot("DataShow");
     }
     
     @FXML
     void menuHandleKijelentkezesButtonClicked() throws IOException {
-        MainApp.setRoot("Login");
+        comeout("Login");
+        //MainApp.setRoot("Login");
     }
     
     @FXML
     void menuHandleFooldalButtonClicked() throws IOException {
-        MainApp.setRoot("DefaultPage");
+        comeout("DefaultPage");
+        //MainApp.setRoot("DefaultPage");
     }
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
-        LeirasController.previous = "Meals";
-        MainApp.setRoot("Leiras");
+        LeirasController.previous = "AddMeal";
+        comeout("Leiras");
+        //MainApp.setRoot("Leiras");
+    }
+    
+    @FXML
+    void comein() {
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
+    
+    @FXML
+    void comeout(String s) throws IOException {
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setOnFinished(e -> {
+            try {
+                MainApp.setRoot(s);
+            } catch (IOException ex) {
+                
+            }
+        });
+        fadeOut.play();
     }
     
     // Menubar vege

@@ -16,6 +16,7 @@ import java.time.Period;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -28,7 +29,9 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -49,6 +52,9 @@ public class DataInController implements Initializable {
     
     @FXML
     private ComboBox comboBox;
+    
+     @FXML
+    private AnchorPane bckgrund;
     
     @FXML
     private TextField magassagErtek;
@@ -206,43 +212,70 @@ public class DataInController implements Initializable {
                 uDao.deleteUser(regi);
             }
             
-            MainApp.setRoot("DefaultPage");
+            comeout("DefaultPage");
         }   
     }
     
     @FXML
     void handeMegseButtonClicked() throws IOException {
-        MainApp.setRoot("DataShow");
+        comeout("DataShow");
     }
     
     // Menubar
     
     @FXML
     void menuHandleAdataimPushed() throws IOException {
-        MainApp.setRoot("DataShow");
+        comeout("DataShow");
+        //MainApp.setRoot("DataShow");
     }
     
     @FXML
     void menuHandleKijelentkezesButtonClicked() throws IOException {
-        MainApp.setRoot("Login");
+        comeout("Login");
+        //MainApp.setRoot("Login");
     }
     
     @FXML
     void menuHandleFooldalButtonClicked() throws IOException {
-        MainApp.setRoot("DefaultPage");
+        comeout("DefaultPage");
+        //MainApp.setRoot("DefaultPage");
     }
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
-        LeirasController.previous = "DataIn";
-        MainApp.setRoot("Leiras");
+        LeirasController.previous = "AddMeal";
+        comeout("Leiras");
+        //MainApp.setRoot("Leiras");
+    }
+    
+    @FXML
+    void comein() {
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
+    
+    @FXML
+    void comeout(String s) throws IOException {
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setOnFinished(e -> {
+            try {
+                MainApp.setRoot(s);
+            } catch (IOException ex) {
+                
+            }
+        });
+        fadeOut.play();
     }
     
     // Menubar vege
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        comein();
         TypedQuery<User> query = entityManager.createQuery("SELECT a FROM User a WHERE USERID ="+ActualUser.actUser.getId(), User.class);
         if(query.getResultList().size() > 0)
         {

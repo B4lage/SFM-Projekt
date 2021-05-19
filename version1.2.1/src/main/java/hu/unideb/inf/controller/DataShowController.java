@@ -11,9 +11,12 @@ import hu.unideb.inf.model.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -28,6 +31,9 @@ public class DataShowController implements Initializable {
 
     final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
+    
+     @FXML
+    private AnchorPane bckgrund;
     
     @FXML
     private Label nevErtek ;
@@ -46,6 +52,7 @@ public class DataShowController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        comein();
         TypedQuery<User> query = entityManager.createQuery("SELECT a FROM User a WHERE USERID ="+ActualUser.actUser.getId(), User.class);
         nevErtek.setText(query.getResultList().get(0).getName());
         korErtek.setText(""+query.getResultList().get(0).getKor());
@@ -64,37 +71,64 @@ public class DataShowController implements Initializable {
     
     @FXML
     void handleAdataimMegvaltoztatasaButtonClicked() throws IOException{
-        MainApp.setRoot("DataIn");
+        comeout("DataIn");
     }
     
     // Menubar
     
     @FXML
     void menuHandleAdataimPushed() throws IOException {
-        MainApp.setRoot("DataShow");
+        comeout("DataShow");
+        //MainApp.setRoot("DataShow");
     }
     
     @FXML
     void menuHandleKijelentkezesButtonClicked() throws IOException {
-        MainApp.setRoot("Login");
+        comeout("Login");
+        //MainApp.setRoot("Login");
     }
     
     @FXML
     void menuHandleFooldalButtonClicked() throws IOException {
-        MainApp.setRoot("DefaultPage");
+        comeout("DefaultPage");
+        //MainApp.setRoot("DefaultPage");
     }
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
-        LeirasController.previous = "DataShow";
-        MainApp.setRoot("Leiras");
+        LeirasController.previous = "AddMeal";
+        comeout("Leiras");
+        //MainApp.setRoot("Leiras");
+    }
+    
+    @FXML
+    void comein() {
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
+    
+    @FXML
+    void comeout(String s) throws IOException {
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setOnFinished(e -> {
+            try {
+                MainApp.setRoot(s);
+            } catch (IOException ex) {
+                
+            }
+        });
+        fadeOut.play();
     }
     
     // Menubar vege
     
     @FXML
     void handleVisszaButtonClicked() throws IOException {
-        MainApp.setRoot("DefaultPage");
+        comeout("DefaultPage");
     }
     
 }

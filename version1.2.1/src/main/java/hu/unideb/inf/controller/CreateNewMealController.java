@@ -8,12 +8,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -24,6 +27,10 @@ import javax.persistence.Persistence;
  * @author roli1
  */
 public class CreateNewMealController implements Initializable{
+    
+     @FXML
+    private AnchorPane bckgrund;
+     
     @FXML
     private TextField etelNeve;
 
@@ -216,7 +223,7 @@ public class CreateNewMealController implements Initializable{
             mDao.saveMeal(kaja1);
             }
             
-            MainApp.setRoot("AddMeal");
+            comeout("AddMeal");
         }
         
 
@@ -226,28 +233,55 @@ public class CreateNewMealController implements Initializable{
     
     @FXML
     void menuHandleAdataimPushed() throws IOException {
-        MainApp.setRoot("DataShow");
+        comeout("DataShow");
+        //MainApp.setRoot("DataShow");
     }
     
     @FXML
     void menuHandleKijelentkezesButtonClicked() throws IOException {
-        MainApp.setRoot("Login");
+        comeout("Login");
+        //MainApp.setRoot("Login");
     }
     
     @FXML
     void menuHandleFooldalButtonClicked() throws IOException {
-        MainApp.setRoot("DefaultPage");
+        comeout("DefaultPage");
+        //MainApp.setRoot("DefaultPage");
     }
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
-        LeirasController.previous = "CreateNewMeal";
-        MainApp.setRoot("Leiras");
+        LeirasController.previous = "AddMeal";
+        comeout("Leiras");
+        //MainApp.setRoot("Leiras");
+    }
+    
+    @FXML
+    void comein() {
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
+    
+    @FXML
+    void comeout(String s) throws IOException {
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setOnFinished(e -> {
+            try {
+                MainApp.setRoot(s);
+            } catch (IOException ex) {
+                
+            }
+        });
+        fadeOut.play();
     }
     
     // Menubar vege
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        comein();
     }    
 }

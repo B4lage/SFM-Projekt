@@ -15,6 +15,7 @@ import hu.unideb.inf.model.UserAuthenticationDao;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -22,7 +23,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -37,6 +40,9 @@ public class LoginController implements Initializable {
 
     final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
+    
+     @FXML
+    private AnchorPane bckgrund;
     
     @FXML
     private TextField felhNev;
@@ -53,7 +59,7 @@ public class LoginController implements Initializable {
         {
             rootStr = "DataIn";
         }
-        MainApp.setRoot(rootStr);
+        comeout(rootStr);
     }
     @FXML
     void handleBejelentkezesButtonClicked() throws IOException {
@@ -88,18 +94,41 @@ public class LoginController implements Initializable {
 
     @FXML
     void handleRegisztracioButtonClicked() throws IOException {
-        MainApp.setRoot("Registration");
+        comeout("Registration");
     }
     
     @FXML
     void menuHandleLeirasButtonClicked() throws IOException {
         LeirasController.previous = "Login";
-        MainApp.setRoot("Leiras");
+        comeout("Leiras");
+    }
+    
+    @FXML
+    void comein() {
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
+    
+    @FXML
+    void comeout(String s) throws IOException {
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.7), bckgrund);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setOnFinished(e -> {
+            try {
+                MainApp.setRoot(s);
+            } catch (IOException ex) {
+                
+            }
+        });
+        fadeOut.play();
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        comein();
     }    
     
 }
