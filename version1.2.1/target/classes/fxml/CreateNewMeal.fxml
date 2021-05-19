@@ -45,11 +45,12 @@
                   <Image url="@106-1065648_healthy-food-png-image-with-transparent-background-healthy.png" />
                </image>
             </ImageView>
-            <AnchorPane id="AnchorPane" layoutX="232.0" layoutY="140.0" prefHeight="440.0" prefWidth="617.0">
+            <AnchorPane layoutX="231.0" layoutY="153.0" opacity="0.2" prefHeight="440.0" prefWidth="618.0" style="-fx-background-color: black;" />
+            <AnchorPane id="AnchorPane" layoutX="231.0" layoutY="140.0" prefHeight="440.0" prefWidth="618.0">
                <children>
-                  <Label layoutX="224.0" layoutY="28.0" text="Saját étel hozzáadása">
+                  <Label layoutX="187.0" layoutY="28.0" prefHeight="35.0" prefWidth="244.0" text="Saját étel hozzáadása">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
                   <Label layoutX="135.0" layoutY="85.0" text="Étel neve:">
@@ -57,68 +58,73 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="134.0" layoutY="122.0" text="Tápanyagtartalom 100g/ml ">
+                  <Label layoutX="187.0" layoutY="122.0" prefHeight="27.0" prefWidth="244.0" text="Tápanyagtartalom 100g/ml ">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="179.0" layoutY="194.0" text="Fehérje:">
+                  <Label layoutX="187.0" layoutY="194.0" text="Fehérje:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="179.0" layoutY="226.0" text="Szénhidrát:">
+                  <Label layoutX="187.0" layoutY="226.0" text="Szénhidrát:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="134.0" layoutY="296.0" text="Egy adag mértéke (g/ml):">
+                  <Label layoutX="142.0" layoutY="296.0" prefHeight="27.0" prefWidth="228.0" text="Egy adag mértéke (g/ml):">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="263.0" layoutY="362.0" mnemonicParsing="false" onAction="#switchToAddMeal" text="Hozzáadás">
+                  <Button layoutX="187.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleVisszaButtonClicked" text="Vissza">
+                      <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="354.0" layoutY="357.0" mnemonicParsing="false" onAction="#switchToAddMeal" text="Hozzáadás">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Label layoutX="178.0" layoutY="161.0" text="Kalória:">
+                  <Label layoutX="187.0" layoutY="161.0" text="Kalória:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="179.0" layoutY="259.0" text="Zsír:">
+                  <Label layoutX="187.0" layoutY="259.0" text="Zsír:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <TextField fx:id="etelNeve" layoutX="241.0" layoutY="86.0" prefHeight="25.0" prefWidth="221.0" />
-                  <TextField fx:id="kcalErtek" layoutX="296.0" layoutY="162.0" prefHeight="25.0" prefWidth="76.0" />
-                  <TextField fx:id="proteinErtek" layoutX="296.0" layoutY="195.0" prefHeight="25.0" prefWidth="76.0" />
-                  <TextField fx:id="chErtek" layoutX="296.0" layoutY="227.0" prefHeight="25.0" prefWidth="76.0" />
-                  <TextField fx:id="fatErtek" layoutX="296.0" layoutY="260.0" prefHeight="25.0" prefWidth="76.0" />
-                  <Text layoutX="372.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" kcal">
+                  <TextField fx:id="kcalErtek" layoutX="325.0" layoutY="162.0" prefHeight="25.0" prefWidth="76.0" />
+                  <TextField fx:id="proteinErtek" layoutX="325.0" layoutY="195.0" prefHeight="25.0" prefWidth="76.0" />
+                  <TextField fx:id="chErtek" layoutX="325.0" layoutY="227.0" prefHeight="25.0" prefWidth="76.0" />
+                  <TextField fx:id="fatErtek" layoutX="325.0" layoutY="260.0" prefHeight="25.0" prefWidth="76.0" />
+                  <Text layoutX="400.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" kcal">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <Text layoutX="372.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" g">
+                  <Text layoutX="400.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" g">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <Text layoutX="372.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" g">
+                  <Text layoutX="400.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" g">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <Text layoutX="372.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" g">
+                  <Text layoutX="400.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" g">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="portionErtek" layoutX="355.0" layoutY="297.0" prefHeight="25.0" prefWidth="76.0" />
-                  <Text layoutX="431.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" g/ml">
+                  <TextField fx:id="portionErtek" layoutX="370.0" layoutY="297.0" prefHeight="25.0" prefWidth="76.0" />
+                  <Text layoutX="446.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" g/ml">
                      <font>
                         <Font size="14.0" />
                      </font>

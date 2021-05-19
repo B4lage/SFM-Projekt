@@ -100,7 +100,7 @@ public class DataShowController implements Initializable {
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
-        LeirasController.previous = "AddMeal";
+        LeirasController.previous = "DataShow";
         comeout("Leiras");
         //MainApp.setRoot("Leiras");
     }

@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,14 +22,7 @@
                <menus>
                   <Menu mnemonicParsing="false" text="Felhasználó">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuHandleAdataimPushed" text="Adataim" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#menuHandleKijelentkezesButtonClicked" text="Kijelentkezés" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Navigáció">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuHandleFooldalButtonClicked" text="Főoldal" />
+                        <MenuItem mnemonicParsing="false" onAction="#menuHandleKijelentkezesButtonClicked" text="Bejelentkezés" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Súgó">
@@ -40,7 +32,7 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <AnchorPane id="AnchorPane" layoutX="168.0" layoutY="73.0" prefHeight="514.0" prefWidth="744.0">
+            <AnchorPane id="AnchorPane" layoutX="168.0" layoutY="80.0" prefHeight="524.0" prefWidth="800.0">
                <children>
                   <TextFlow layoutX="105.0" layoutY="314.0" prefHeight="200.0" prefWidth="200.0" />
                   <Text layoutX="28.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ezt az applikációt kalórianyomonkövetésre fejlesztettük.&#13;Regisztráció után meg tudod adni az adataid, amiből kiszámolásra kerül a napi kalóriaszükségleted.&#13;Az adott napi elfogyasztott kalóriáid a főoldalon tudod megtekinteni.&#13;Étkezés hozzáadásához kattints a főoldalon az Étkezéseim gombra, majd az Étkezés hozzáadása gombra!&#13;Ha nem találod az ételt, amit elfogyasztottál, egyszerűen hozzáadhatod az adatbázishoz.&#13;Amennyiben változott a testsúlyod, napi aktivitásod, lehetőséged van az adataid szerkesztésére. Ehhez kattints a főoldalon az Adataim megtekintése gombra, majd klikkelj az Adataim módosítására!&#13;&#13;Reméljük segítünk a célod elérésében!&#13;&#13;&#13;Fejlesztők:        Gyarmati Tamás&#13;                         Kiss Roland&#13;                         Orosz Erik&#13;                         Daróczy Balázs" wrappingWidth="688.01953125">
@@ -48,16 +40,17 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
+                  <AnchorPane layoutY="47.0" opacity="0.2" prefHeight="484.0" prefWidth="800.0" style="-fx-background-color: black;" />
                </children>
             </AnchorPane>
-            <Button layoutX="505.0" layoutY="625.0" mnemonicParsing="false" onAction="#handleVisszaButtonClicked" text="Vissza">
+            <Button layoutX="508.0" layoutY="640.0" mnemonicParsing="false" onAction="#handleVisszaButtonClicked" prefHeight="31.0" prefWidth="64.0" text="Vissza">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Label layoutX="424.0" layoutY="54.0" text="Kedves felhasználó!" textAlignment="CENTER">
+            <Label layoutX="372.0" layoutY="54.0" prefHeight="53.0" prefWidth="336.0" text="Kedves felhasználó!" textAlignment="CENTER">
                <font>
-                  <Font size="24.0" />
+                  <Font size="36.0" />
                </font>
             </Label>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" onMouseEntered="#mutat" onMouseExited="#takar" pickOnBounds="true" preserveRatio="true">

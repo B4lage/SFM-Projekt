@@ -27,29 +27,30 @@
                   <Image url="@106-1065648_healthy-food-png-image-with-transparent-background-healthy.png" />
                </image>
             </ImageView>
-            <Label layoutX="448.0" layoutY="60.0" text="Étkezés hozzáadása">
+            <AnchorPane layoutX="80.0" layoutY="47.0" opacity="0.2" prefHeight="548.0" prefWidth="920.0" style="-fx-background-color: black;" />
+            <Label layoutX="427.0" layoutY="60.0" prefHeight="35.0" prefWidth="226.0" text="Étkezés hozzáadása">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button layoutX="482.0" layoutY="545.0" onAction="#handleOKButtonClicked" text="Vissza">
+            <Button layoutX="506.0" layoutY="545.0" onAction="#handleOKButtonClicked" prefHeight="31.0" prefWidth="68.0" text="Vissza">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Label layoutX="333.0" layoutY="121.0" text="Mit ettél:">
+            <Label layoutX="290.0" layoutY="121.0" text="Mit ettél:">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <TableView id="TableViewMy" fx:id="mealsTable" layoutX="333.0" layoutY="159.0" onMouseClicked="#onMouseClicked" prefHeight="284.0" prefWidth="449.0">
+            <TableView id="TableViewMy" fx:id="mealsTable" layoutX="290.0" layoutY="159.0" onMouseClicked="#onMouseClicked" prefHeight="284.0" prefWidth="500.0">
                <columns>
-                  <TableColumn id="coulom" fx:id="Tname" prefWidth="146.0" text="Név" />
-                  <TableColumn id="coulom" fx:id="Tfat" prefWidth="49.0" text="zsír" />
-                  <TableColumn id="coulom" fx:id="Tkcal" minWidth="0.0" prefWidth="57.0" text="kcal/100" />
-                  <TableColumn id="coulom" fx:id="Tprot" prefWidth="56.0" text="fehérje" />
-                  <TableColumn id="coulom" fx:id="Tch" prefWidth="75.0" text="szénhidrát" />
-                  <TableColumn id="coulom" fx:id="Tportion" prefWidth="88.0" text="adag" />
+                  <TableColumn id="coulom" fx:id="Tname" prefWidth="178.0" resizable="false" text="Név" />
+                  <TableColumn id="coulom" fx:id="Tkcal" minWidth="0.0" prefWidth="64.0" resizable="false" text="kcal/100" />
+                  <TableColumn id="coulom" fx:id="Tprot" prefWidth="64.0" resizable="false" text="fehérje" />
+                  <TableColumn id="coulom" fx:id="Tfat" prefWidth="64.0" resizable="false" text="zsír" />
+                  <TableColumn id="coulom" fx:id="Tch" prefWidth="64.0" resizable="false" text="szénhidrát" />
+                  <TableColumn id="coulom" fx:id="Tportion" prefWidth="64.0" resizable="false" text="adag" />
                </columns>
             </TableView>
             <Label layoutX="147.0" layoutY="480.0" text="Mennyit ettél:">
@@ -57,7 +58,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="mitEvett" layoutX="426.0" layoutY="121.0" onKeyReleased="#searchInTable" />
+            <TextField fx:id="mitEvett" layoutX="382.0" layoutY="122.0" onKeyReleased="#searchInTable" prefHeight="25.0" prefWidth="408.0" />
             <TextField fx:id="mennyitEvett" layoutX="268.0" layoutY="481.0" prefHeight="25.0" prefWidth="61.0" />
             <RadioButton fx:id="gml" layoutX="341.0" layoutY="485.0" mnemonicParsing="false" text="g/ml">
                <toggleGroup>
@@ -65,12 +66,12 @@
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="adag" layoutX="340.0" layoutY="506.0" mnemonicParsing="false" text="adag" toggleGroup="$egyseg" />
-            <Button layoutX="630.0" layoutY="479.0" mnemonicParsing="false" onAction="#switchToCreateNewMeal" text="Saját étel hozzáadása">
+            <Button layoutX="634.0" layoutY="479.0" mnemonicParsing="false" onAction="#switchToCreateNewMeal" prefHeight="30.0" prefWidth="156.0" text="Saját étel hozzáadása">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="426.0" layoutY="479.0" mnemonicParsing="false" onAction="#handleHozzaadomANapomhozButtonClicked" text="Hozzáadom a napomhoz">
+            <Button layoutX="426.0" layoutY="479.0" mnemonicParsing="false" onAction="#handleHozzaadomANapomhozButtonClicked" prefHeight="30.0" prefWidth="178.0" text="Hozzáadom a napomhoz">
                <font>
                   <Font size="14.0" />
                </font>

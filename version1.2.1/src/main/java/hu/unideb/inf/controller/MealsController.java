@@ -138,7 +138,7 @@ public class MealsController implements Initializable{
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
-        LeirasController.previous = "AddMeal";
+        LeirasController.previous = "Meals";
         comeout("Leiras");
         //MainApp.setRoot("Leiras");
     }

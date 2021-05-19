@@ -50,82 +50,83 @@
             </MenuBar>
             <AnchorPane id="AnchorPane" layoutX="240.0" layoutY="160.0" prefHeight="400.0" prefWidth="600.0">
                <children>
-                  <Label layoutX="242.0" layoutY="36.0" text="Adataim">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
-                  <GridPane layoutX="57.0" layoutY="132.0" prefHeight="160.0" prefWidth="518.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="61.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="10.0" prefWidth="404.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="Név">
+                  <AnchorPane opacity="0.2" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" />
+                        <Label layoutX="242.0" layoutY="36.0" text="Adataim">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="30.0" />
                            </font>
                         </Label>
-                        <Label text="Kor" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label text="Magasság" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label text="Súly" GridPane.rowIndex="3">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label text="Aktivitas" GridPane.rowIndex="4">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="nevErtek" text="..." GridPane.columnIndex="1">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="korErtek" text="..." GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="magassagErtek" text="..." GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="sulyErtek" text="..." GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="aktivitasErtek" prefHeight="27.0" prefWidth="395.0" text="Űlő munkát végzek és hetente 2x sportolok" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </GridPane>
-                  <Button layoutX="371.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleAdataimMegvaltoztatasaButtonClicked" text="Adataim megváltoztatása" />
-                  <Button layoutX="57.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleVisszaButtonClicked" text="Vissza" />
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
+                        <GridPane layoutX="57.0" layoutY="132.0" prefHeight="160.0" prefWidth="518.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="61.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="10.0" prefWidth="404.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Név">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Kor" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Magasság" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Súly" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Aktivitas" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="nevErtek" text="..." GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="korErtek" text="..." GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="magassagErtek" text="..." GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="sulyErtek" text="..." GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="aktivitasErtek" prefHeight="27.0" prefWidth="395.0" text="Űlő munkát végzek és hetente 2x sportolok" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                         </children>
+                      </GridPane>
+                      <Button layoutX="371.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleAdataimMegvaltoztatasaButtonClicked" text="Adataim megváltoztatása" />
+                      <Button layoutX="57.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleVisszaButtonClicked" text="Vissza" />
+                </children>
+                <opaqueInsets>
+                      <Insets />
+                </opaqueInsets>
             </AnchorPane>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" onMouseEntered="#mutat" onMouseExited="#takar" pickOnBounds="true" preserveRatio="true">
                <image>

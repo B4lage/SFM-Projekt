@@ -233,6 +233,11 @@ public class CreateNewMealController implements Initializable{
 
     }
     
+    @FXML
+    void handleVisszaButtonClicked() throws IOException {
+        comeout("AddMeal");
+    }
+    
     // Menubar
     
     @FXML
@@ -255,7 +260,7 @@ public class CreateNewMealController implements Initializable{
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
-        LeirasController.previous = "AddMeal";
+        LeirasController.previous = "CreateNewMeal";
         comeout("Leiras");
         //MainApp.setRoot("Leiras");
     }
