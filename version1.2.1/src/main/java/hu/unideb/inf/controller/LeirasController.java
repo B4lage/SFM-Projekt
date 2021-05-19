@@ -42,21 +42,9 @@ public class LeirasController implements Initializable {
     // Menubar
     
     @FXML
-    void menuHandleAdataimPushed() throws IOException {
-        comeout("DataShow");
-        //MainApp.setRoot("DataShow");
-    }
-    
-    @FXML
     void menuHandleKijelentkezesButtonClicked() throws IOException {
         comeout("Login");
         //MainApp.setRoot("Login");
-    }
-    
-    @FXML
-    void menuHandleFooldalButtonClicked() throws IOException {
-        comeout("DefaultPage");
-        //MainApp.setRoot("DefaultPage");
     }
     
     @FXML        
@@ -65,6 +53,8 @@ public class LeirasController implements Initializable {
         comeout("Leiras");
         //MainApp.setRoot("Leiras");
     }
+    
+    //menubar end
     
     @FXML
     void comein() {

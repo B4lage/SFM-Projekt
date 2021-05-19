@@ -45,8 +45,9 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <AnchorPane id="AnchorPane" layoutX="232.0" layoutY="109.0" prefHeight="720.0" prefWidth="609.0" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="232.0" AnchorPane.rightAnchor="232.0" AnchorPane.topAnchor="109.0">
+            <AnchorPane id="AnchorPane" layoutX="232.0" layoutY="109.0" prefHeight="720.0" prefWidth="616.0" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="232.0" AnchorPane.rightAnchor="232.0" AnchorPane.topAnchor="109.0">
                <children>
+                  <AnchorPane opacity="0.2" prefHeight="463.0" prefWidth="616.0" style="-fx-background-color: black;" />
                   <Label fx:id="elfogyasztottKcal" alignment="CENTER" layoutX="62.0" layoutY="149.0" prefHeight="27.0" prefWidth="112.0" text="0" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
@@ -57,17 +58,17 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="udvozloText" alignment="TOP_CENTER" layoutY="29.0" prefHeight="30.0" prefWidth="616.0" text="Összefoglaló" textAlignment="CENTER" AnchorPane.bottomAnchor="461.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+                  <Label fx:id="udvozloText" alignment="TOP_CENTER" layoutY="29.0" prefHeight="47.0" prefWidth="616.0" text="Összefoglaló" textAlignment="CENTER" AnchorPane.bottomAnchor="444.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="32.0" />
                      </font>
                   </Label>
-                  <Label fx:id="celKcal" alignment="CENTER" layoutX="278.0" layoutY="149.0" prefHeight="27.0" prefWidth="74.0" text="0" textAlignment="CENTER">
+                  <Label fx:id="celKcal" alignment="CENTER" layoutX="271.0" layoutY="154.0" prefHeight="27.0" prefWidth="74.0" text="0" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="275.0" layoutY="185.0" prefHeight="27.0" prefWidth="74.0" text="Cél">
+                  <Label alignment="CENTER" layoutX="271.0" layoutY="185.0" prefHeight="27.0" prefWidth="74.0" text="Cél">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -91,15 +92,15 @@
                   </Label>
                   <Button layoutX="334.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleEtkezesHozzaadasaButtonClicked" text="Étkezéseim" />
                   <Button fx:id="handleAdataimMegtekinteseButtonClicked" layoutX="445.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleAdataimMegtekinteseButtonClicked" text="Adataim megtekintése" />
-                  <ProgressBar fx:id="chMeter" layoutX="68.0" layoutY="274.0" maxHeight="5.0" prefHeight="5.0" prefWidth="100.0" progress="0.0" styleClass="macro" />
-                  <ProgressBar fx:id="pMeter" layoutX="265.0" layoutY="274.0" maxHeight="5.0" prefHeight="5.0" prefWidth="100.0" progress="0.0" styleClass="macro" />
-                  <ProgressBar fx:id="fatMeter" layoutX="437.0" layoutY="274.0" maxHeight="30.0" prefHeight="5.0" prefWidth="100.0" progress="0.0" styleClass="macro" />
-                  <Label alignment="CENTER" layoutX="67.0" layoutY="252.0" prefHeight="17.0" prefWidth="100.0" text="Szénhidrátok" textAlignment="CENTER" />
-                  <Label alignment="CENTER" layoutX="264.0" layoutY="252.0" prefHeight="17.0" prefWidth="100.0" text="Fehérje" textAlignment="CENTER" />
-                  <Label alignment="CENTER" layoutX="437.0" layoutY="252.0" prefHeight="17.0" prefWidth="100.0" text="Zsír" textAlignment="CENTER" />
-                  <Label fx:id="chLabel" alignment="CENTER" layoutX="69.0" layoutY="287.0" prefHeight="17.0" prefWidth="100.0" textAlignment="CENTER" />
-                  <Label fx:id="pLabel" alignment="CENTER" layoutX="265.0" layoutY="287.0" prefHeight="17.0" prefWidth="100.0" textAlignment="CENTER" />
-                  <Label fx:id="fatLabel" alignment="CENTER" layoutX="437.0" layoutY="287.0" prefHeight="17.0" prefWidth="100.0" textAlignment="CENTER" />
+                  <ProgressBar fx:id="chMeter" layoutX="68.0" layoutY="280.0" maxHeight="5.0" prefHeight="5.0" prefWidth="100.0" progress="0.0" styleClass="macro" />
+                  <ProgressBar fx:id="pMeter" layoutX="258.0" layoutY="280.0" maxHeight="5.0" prefHeight="5.0" prefWidth="100.0" progress="0.0" styleClass="macro" />
+                  <ProgressBar fx:id="fatMeter" layoutX="436.0" layoutY="280.0" maxHeight="30.0" prefHeight="5.0" prefWidth="100.0" progress="0.0" styleClass="macro" />
+                  <Label alignment="CENTER" layoutX="69.0" layoutY="252.0" prefHeight="17.0" prefWidth="100.0" text="Szénhidrátok" textAlignment="CENTER" />
+                  <Label alignment="CENTER" layoutX="258.0" layoutY="252.0" prefHeight="17.0" prefWidth="100.0" text="Fehérje" textAlignment="CENTER" />
+                  <Label alignment="CENTER" layoutX="436.0" layoutY="252.0" prefHeight="17.0" prefWidth="100.0" text="Zsír" textAlignment="CENTER" />
+                  <Label fx:id="chLabel" alignment="CENTER" layoutX="68.0" layoutY="287.0" prefHeight="17.0" prefWidth="100.0" textAlignment="CENTER" />
+                  <Label fx:id="pLabel" alignment="CENTER" layoutX="258.0" layoutY="287.0" prefHeight="17.0" prefWidth="100.0" textAlignment="CENTER" />
+                  <Label fx:id="fatLabel" alignment="CENTER" layoutX="436.0" layoutY="287.0" prefHeight="17.0" prefWidth="100.0" textAlignment="CENTER" />
                </children>
             </AnchorPane>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="834.0" layoutY="623.0" onMouseEntered="#mutat" onMouseExited="#takar" pickOnBounds="true" preserveRatio="true">

@@ -192,7 +192,7 @@ public class DefaultPageController implements Initializable{
     
     @FXML        
     void menuHandleLeirasButtonClicked() throws IOException {
-        LeirasController.previous = "AddMeal";
+        LeirasController.previous = "DefaultPage";
         comeout("Leiras");
         //MainApp.setRoot("Leiras");
     }

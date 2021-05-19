@@ -62,8 +62,8 @@
   </properties>
   <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testGetId" time="0"/>
   <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testSetId" time="0"/>
-  <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testSetPw" time="0"/>
   <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testSetName" time="0"/>
-  <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testGetPw" time="0"/>
   <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testGetName" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testGetPw" time="0"/>
+  <testcase classname="hu.unideb.inf.model.UserAuthenticationTest" name="hu.unideb.inf.model.UserAuthenticationTest.testSetPw" time="0"/>
 </testsuite>

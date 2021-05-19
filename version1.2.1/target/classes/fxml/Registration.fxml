@@ -19,9 +19,10 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to left bottom, #5AE416, #00CA68, #00AB8D, #008A95, #006881, #2F4858);" />
       <AnchorPane fx:id="bckgrund" prefHeight="720.0" prefWidth="1080.0">
          <children>
+            <AnchorPane layoutX="240.0" layoutY="63.0" opacity="0.2" prefHeight="520.0" prefWidth="600.0" style="-fx-background-color: black;" />
             <AnchorPane id="AnchorPane" layoutX="165.0" layoutY="97.0" prefHeight="527.0" prefWidth="750.0">
                <children>
-                  <Label layoutX="243.0" layoutY="78.0" prefHeight="27.0" prefWidth="266.0" text="Adj meg egy felhasználónevet!">
+                  <Label layoutX="242.0" layoutY="78.0" prefHeight="27.0" prefWidth="266.0" text="Adj meg egy felhasználónevet!">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -39,9 +40,9 @@
                   <TextField fx:id="felhNev" layoutX="301.0" layoutY="118.0" />
                   <PasswordField fx:id="jelszoErosites" layoutX="302.0" layoutY="314.0" prefHeight="25.0" prefWidth="149.0" />
                   <PasswordField fx:id="jelszoErtek" layoutX="301.0" layoutY="195.0" onKeyTyped="#setPasswordMeter" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="39.0" text="Regisztráció">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="282.0" layoutY="-5.0" prefHeight="47.0" prefWidth="186.0" text="Regisztráció">
                      <font>
-                        <Font size="27.0" />
+                        <Font size="32.0" />
                      </font>
                   </Label>
                   <Button layoutX="312.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleRegisztracioButtonClicked" text="Regisztrálok!">
